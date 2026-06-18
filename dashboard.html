@@ -270,6 +270,11 @@ const STAGES = [
 const STAGE_C = Object.fromEntries(STAGES.map(s => [s.k, s.c]));
 const COLOR_SECTOR = ['get', 'color'];
 const COLOR_STAGE = ['get', 'scolor'];
+const fmtEur = v => {
+  if (v >= 1e9) return (v / 1e9).toFixed(1).replace(/\.0$/, '') + ' Md€';
+  if (v >= 1e6) return (v / 1e6).toFixed(0) + ' M€';
+  return (v / 1e3).toFixed(0) + ' k€';
+};
 const esc = s => String(s == null ? '' : s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
 const ynCls = v => v === 'Oui' ? 'y' : v === 'Non' ? 'n' : 'u';
 let active = new Set(DATA.families.map(f => f.name));

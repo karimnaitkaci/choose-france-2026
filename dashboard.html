@@ -208,6 +208,7 @@ h1 .y{color:var(--amber)}
   <div class="toggle" id="viewToggle">
     <button data-v="projets" class="on">Vue projets</button>
     <button data-v="regions">Vue régions</button>
+    <button data-v="phases">Vue phases</button>
   </div>
   <section class="filters" id="chips"></section>
   <div class="search"><input id="q" type="search" placeholder="Rechercher un investisseur, une ville, un secteur…"></div>
@@ -464,6 +465,7 @@ h1 .y{color:var(--amber)}
   <div class="toggle" id="viewToggle">
     <button data-v="projets" class="on">Vue projets</button>
     <button data-v="regions">Vue régions</button>
+    <button data-v="phases">Vue phases</button>
   </div>
   <section class="filters" id="chips"></section>
   <div class="search"><input id="q" type="search" placeholder="Rechercher un investisseur, une ville, un secteur…"></div>
@@ -654,9 +656,50 @@ function regionFeatures() {
   }))};
 }
 
+/* ---------- phases aggregation ---------- */
+// Créer les coordonnées des phases (utiliser la France métropolitaine comme point central pour chaque phase)
+const PHASEC = {};
+const phaseCoords = {
+  'Annoncé': [46.5, 2.5],
+  'Études / Design': [47.5, 3.5],
+  'Permis obtenu': [48.5, 2.5],
+  'Travaux démarrés': [45.5, 1.5],
+  'Opérationnel / Extension en cours': [46.0, 4.0]
+};
+
+DATA.phases.forEach(p => {
+  if (phaseCoords[p.name]) PHASEC[p.name] = phaseCoords[p.name];
+});
+
+function phaseAgg() {
+  const agg = {};
+  visible().forEach(p => {
+    const ph = p.phase;
+    agg[ph] = agg[ph] || { eur: 0, n: new Set(), color: p.phase_color };
+    p.sites.forEach(s => {
+      if (s.share_eur) agg[ph].eur += s.share_eur;
+    });
+    agg[ph].n.add(p.id);
+  });
+  return agg;
+}
+
+function phaseFeatures() {
+  return { type: 'FeatureCollection', features: Object.entries(phaseAgg()).map(([ph, a]) => ({
+    type: 'Feature',
+    geometry: { type: 'Point', coordinates: PHASEC[ph] || [46.5, 2.5] },
+    properties: {
+      phase: ph, eur: a.eur, n: a.n.size, color: a.color,
+      r: a.eur ? Math.min(46, 10 + 4.6 * Math.log10(Math.max(a.eur,1e6)/1e6)) : 9,
+      lbl: `${ph}\n${a.n.size} projet${a.n.size>1?'s':''} · ${fmtEur(a.eur)}`
+    }
+  }))};
+}
+
 if (map) map.on('load', () => {
   map.addSource('sites', { type: 'geojson', data: siteFeatures() });
   map.addSource('regions', { type: 'geojson', data: regionFeatures() });
+  map.addSource('phases', { type: 'geojson', data: phaseFeatures() });
 
   map.addLayer({
     id: 'site-circles', type: 'circle', source: 'sites',
@@ -688,6 +731,26 @@ if (map) map.on('load', () => {
     paint: { 'text-color': '#41434a', 'text-halo-color': 'rgba(255,255,255,.92)', 'text-halo-width': 1.6 }
   });
 
+  map.addLayer({
+    id: 'phase-circles', type: 'circle', source: 'phases',
+    layout: { visibility: 'none' },
+    paint: {
+      'circle-radius': ['get', 'r'],
+      'circle-color': ['get', 'color'], 'circle-opacity': 0.65,
+      'circle-stroke-color': '#ffffff', 'circle-stroke-width': 2
+    }
+  });
+  map.addLayer({
+    id: 'phase-labels', type: 'symbol', source: 'phases',
+    layout: {
+      visibility: 'none',
+      'text-field': ['get', 'lbl'], 'text-font': ['Noto Sans Bold'],
+      'text-size': 11, 'text-offset': [0, 0.2], 'text-anchor': 'center',
+      'text-allow-overlap': true
+    },
+    paint: { 'text-color': '#41434a', 'text-halo-color': 'rgba(255,255,255,.92)', 'text-halo-width': 1.6 }
+  });
+
   map.on('click', 'site-circles', e => {
     const { pid, si } = e.features[0].properties;
     openPopup(DATA.projects[pid], si, e.features[0].geometry.coordinates);
@@ -700,7 +763,15 @@ if (map) map.on('load', () => {
         <div class="pp-cap"><b>${fmtEur(p.eur)}</b> · ${p.n} projet${p.n>1?'s':''} (CAPEX localisé)</div></div>`)
       .addTo(map);
   });
-  ['site-circles','region-circles'].forEach(l => {
+  map.on('click', 'phase-circles', e => {
+    const p = e.features[0].properties;
+    new maplibregl.Popup({ offset: 8 }).setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(`<div class="pp"><div class="pp-fam" style="--c:${p.color}">Phase</div>
+        <h3>${p.phase}</h3>
+        <div class="pp-cap"><b>${fmtEur(p.eur)}</b> · ${p.n} projet${p.n>1?'s':''}</div></div>`)
+      .addTo(map);
+  });
+  ['site-circles','region-circles','phase-circles'].forEach(l => {
     map.on('mouseenter', l, () => map.getCanvas().style.cursor = 'pointer');
     map.on('mouseleave', l, () => map.getCanvas().style.cursor = '');
   });
@@ -797,6 +868,8 @@ function applyView() {
   map.setLayoutProperty('site-circles', 'visibility', view === 'projets' ? 'visible' : 'none');
   map.setLayoutProperty('region-circles', 'visibility', view === 'regions' ? 'visible' : 'none');
   map.setLayoutProperty('region-labels', 'visibility', view === 'regions' ? 'visible' : 'none');
+  map.setLayoutProperty('phase-circles', 'visibility', view === 'phases' ? 'visible' : 'none');
+  map.setLayoutProperty('phase-labels', 'visibility', view === 'phases' ? 'visible' : 'none');
 }
 let inGuyane = false;
 document.getElementById('jGuyane').onclick = function () {
@@ -815,6 +888,7 @@ function refresh() {
   if (map && map.getSource('sites')) {
     map.getSource('sites').setData(siteFeatures());
     map.getSource('regions').setData(regionFeatures());
+    map.getSource('phases').setData(phaseFeatures());
   }
   applyView(); renderBars(); renderList(); renderNat();
 }

@@ -373,7 +373,7 @@ function siteFeatures() {
       const sitesWithCapex = p.sites.filter(s => s.share_eur);
 
       if (sitesWithCapex.length === p.sites.length) {
-        // Cas normal: tous les sites ont un CAPEX défini
+        // Cas 1: tous les sites ont un CAPEX défini
         p.sites.forEach((s, si) => {
           feats.push({
             type: 'Feature',
@@ -386,23 +386,35 @@ function siteFeatures() {
             }
           });
         });
+      } else if (p.capex_eur) {
+        // Cas 2: sites sans CAPEX spécifique mais CAPEX total → un point au centre
+        feats.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: FRANCE_CENTER },
+          properties: {
+            pid: p.id, si: 0, r: R(p.capex_eur), color: p.color,
+            scolor: getPhaseColor(p.phase),
+            nc: 0,
+            sortr: -R(p.capex_eur)
+          }
+        });
       } else {
-        // Cas spécial: sites sans CAPEX spécifique → un point au centre avec CAPEX total
-        if (p.capex_eur) {
+        // Cas 3: pas de CAPEX du tout → petits cercles à chaque site
+        p.sites.forEach((s, si) => {
           feats.push({
             type: 'Feature',
-            geometry: { type: 'Point', coordinates: FRANCE_CENTER },
+            geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
             properties: {
-              pid: p.id, si: 0, r: R(p.capex_eur), color: p.color,
+              pid: p.id, si, r: R(0), color: p.color,  // R(0) = rayon minimum (10px)
               scolor: getPhaseColor(p.phase),
-              nc: p.capex_eur == null ? 1 : 0,
-              sortr: -R(p.capex_eur)
+              nc: 1,  // Mark as "no capex"
+              sortr: 0
             }
           });
-        }
+        });
       }
     } else if (p.capex_eur && p.nationwide) {
-      // Projet national sans sites: afficher au centre de la France
+      // Cas 4: Projet national sans sites mais avec CAPEX: afficher au centre de la France
       feats.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: FRANCE_CENTER },

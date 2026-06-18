@@ -268,6 +268,7 @@ const STAGES = [
   { k: 'Opérationnel / Extension en cours', c: '#20c997' },
 ];
 const STAGE_C = Object.fromEntries(STAGES.map(s => [s.k, s.c]));
+const getPhaseColor = phase => STAGE_C[phase] || '#9aa4b1';
 const COLOR_SECTOR = ['get', 'color'];
 const COLOR_STAGE = ['get', 'scolor'];
 const fmtEur = v => {
@@ -355,7 +356,7 @@ function siteFeatures() {
     geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
     properties: {
       pid: p.id, si, r: R(s.share_eur), color: p.color,
-      scolor: p.phase_color || '#9aa4b1',
+      scolor: getPhaseColor(p.phase),
       nc: p.capex_eur == null ? 1 : 0,
       sortr: -R(s.share_eur)
     }
@@ -454,7 +455,7 @@ function openPopup(p, si, lngLat) {
     <p>${p.desc}</p>
     <div class="pp-pres ${presCls}"><b>${presTitle}</b>${p.presence_details}</div>
     <div class="pp-adv">
-      <b style="--sc:${p.phase_color || '#9aa4b1'}">${p.phase}</b>
+      <b style="--sc:${getPhaseColor(p.phase)}">${p.phase}</b>
       <div class="pp-badges">
         <span class="bdg ${ynCls(p.permit)}">Permis : ${p.permit}</span>
         <span class="bdg ${ynCls(p.design)}">Design : ${p.design}</span>
@@ -505,7 +506,7 @@ function renderList() {
       <i></i>
       <div class="nm"><b>${p.client}</b><span>${p.citizenship} · ${regionLabel(p)}</span></div>
       ${p.nationwide ? '<span class="tag">National</span>' : ''}
-      <span class="srow" title="${p.phase}" style="background:${p.phase_color || '#9aa4b1'}"></span>
+      <span class="srow" title="${p.phase}" style="background:${getPhaseColor(p.phase)}"></span>
       <div class="cx ${p.capex_eur == null ? 'na' : ''}">${p.capex_eur == null ? 'n.c.' : p.capex}</div>
     </div>`).join('');
   document.querySelectorAll('.row').forEach(el => el.onclick = () => {

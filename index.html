@@ -1,12 +1,99 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Choose France 2026 - Dashboard</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose France 2026 - Dashboard Interactif</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
+    <div class="container">
+        <header class="header">
+            <h1>🇫🇷 Choose France 2026</h1>
+            <p class="subtitle">Opportunités d'investissement - Sommet de Versailles (1er juin 2026)</p>
+        </header>
+
+        <div class="content">
+            <!-- Sidebar avec filtres -->
+            <aside class="sidebar">
+                <div class="filters-section">
+                    <h2>Filtres</h2>
+
+                    <!-- Filtre par secteur -->
+                    <div class="filter-group">
+                        <label for="sector-filter"><strong>Secteur</strong></label>
+                        <select id="sector-filter">
+                            <option value="">-- Tous les secteurs --</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtre par région -->
+                    <div class="filter-group">
+                        <label for="region-filter"><strong>Région</strong></label>
+                        <select id="region-filter">
+                            <option value="">-- Toutes les régions --</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtre par CAPEX minimum -->
+                    <div class="filter-group">
+                        <label for="capex-filter"><strong>CAPEX minimum (Md€)</strong></label>
+                        <input type="range" id="capex-filter" min="0" max="100" value="0" step="5">
+                        <span id="capex-value">0</span>
+                    </div>
+
+                    <!-- Bouton de réinitialisation -->
+                    <button id="reset-filters" class="btn-reset">Réinitialiser les filtres</button>
+                </div>
+
+                <!-- Statistiques -->
+                <div class="stats-section">
+                    <h2>Statistiques</h2>
+                    <div class="stat-item">
+                        <span class="stat-label">Projets affichés</span>
+                        <span class="stat-value" id="projects-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CAPEX total</span>
+                        <span class="stat-value" id="capex-total">0</span> Md€
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Régions impliquées</span>
+                        <span class="stat-value" id="regions-count">0</span>
+                    </div>
+                </div>
+
+                <!-- Liste des projets -->
+                <div class="projects-list-section">
+                    <h2>Projets</h2>
+                    <div id="projects-list" class="projects-list"></div>
+                </div>
+            </aside>
+
+            <!-- Carte interactive -->
+            <main class="main-content">
+                <div id="map" class="map"></div>
+            </main>
+        </div>
+
+        <!-- Modal pour les détails du projet -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>

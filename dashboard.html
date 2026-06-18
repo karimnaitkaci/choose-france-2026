@@ -366,37 +366,61 @@ try {
 function siteFeatures() {
   const feats = [];
   const FRANCE_CENTER = [2.6, 46.6]; // Centre approximatif de la France
+  const CENTER_OFFSET = 0.08; // ~8.8 km radius for distribution
+
+  // Séparer mono-site et multi-site
+  const monoSites = [];
+  const multiSites = [];
 
   visible().forEach(p => {
     if (p.sites && p.sites.length > 0) {
-      // Un seul point par projet: afficher au site principal (premier site)
-      const primarySite = p.sites[0];
-      const capex = p.capex_eur || 0;  // Tout le CAPEX au site principal
-      const isEmptyCapex = capex === 0;
-
-      feats.push({
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [primarySite.lon, primarySite.lat] },
-        properties: {
-          pid: p.id, si: 0, r: R(capex), color: p.color,
-          scolor: getPhaseColor(p.phase),
-          nc: isEmptyCapex ? 1 : 0,
-          sortr: isEmptyCapex ? 0 : -R(capex)
-        }
-      });
+      if (p.sites.length === 1) {
+        monoSites.push(p);
+      } else {
+        multiSites.push(p);
+      }
     } else if (p.capex_eur && p.nationwide) {
-      // Cas spécial: Projet national sans sites: afficher au centre de la France
-      feats.push({
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: FRANCE_CENTER },
-        properties: {
-          pid: p.id, si: 0, r: R(p.capex_eur), color: p.color,
-          scolor: getPhaseColor(p.phase),
-          nc: 0,
-          sortr: -R(p.capex_eur)
-        }
-      });
+      multiSites.push(p);
     }
+  });
+
+  // Afficher mono-sites au site principal
+  monoSites.forEach(p => {
+    const primarySite = p.sites[0];
+    const capex = p.capex_eur || 0;
+    const isEmptyCapex = capex === 0;
+
+    feats.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [primarySite.lon, primarySite.lat] },
+      properties: {
+        pid: p.id, si: 0, r: R(capex), color: p.color,
+        scolor: getPhaseColor(p.phase),
+        nc: isEmptyCapex ? 1 : 0,
+        sortr: isEmptyCapex ? 0 : -R(capex)
+      }
+    });
+  });
+
+  // Afficher multi-sites au centre, décalés en cercle
+  multiSites.forEach((p, idx) => {
+    const angle = (idx * 360 / Math.max(multiSites.length, 1)) * (Math.PI / 180);
+    const offsetLon = FRANCE_CENTER[0] + CENTER_OFFSET * Math.cos(angle);
+    const offsetLat = FRANCE_CENTER[1] + CENTER_OFFSET * Math.sin(angle);
+
+    const capex = p.capex_eur || 0;
+    const isEmptyCapex = capex === 0;
+
+    feats.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [offsetLon, offsetLat] },
+      properties: {
+        pid: p.id, si: 0, r: R(capex), color: p.color,
+        scolor: getPhaseColor(p.phase),
+        nc: isEmptyCapex ? 1 : 0,
+        sortr: isEmptyCapex ? 0 : -R(capex)
+      }
+    });
   });
 
   feats.sort((a, b) => a.properties.sortr - b.properties.sortr);

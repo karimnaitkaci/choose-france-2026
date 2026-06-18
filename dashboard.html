@@ -365,28 +365,43 @@ try {
 
 function siteFeatures() {
   const feats = [];
-  visible().forEach(p => p.sites.forEach((s, si) => feats.push({
-    type: 'Feature',
-    geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
-    properties: {
-      pid: p.id, si, r: R(s.share_eur), color: p.color,
-      scolor: getPhaseColor(p.phase),
-      nc: p.capex_eur == null ? 1 : 0,
-      sortr: -R(s.share_eur)
+  visible().forEach(p => {
+    // Si le projet a des sites, on les affiche
+    if (p.sites && p.sites.length > 0) {
+      p.sites.forEach((s, si) => {
+        // Calculer le CAPEX du site: soit share_eur est défini, soit on divise le total par le nombre de sites
+        const siteCapex = s.share_eur || (p.capex_eur && p.capex_eur / p.sites.length) || 0;
+        feats.push({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
+          properties: {
+            pid: p.id, si, r: R(siteCapex), color: p.color,
+            scolor: getPhaseColor(p.phase),
+            nc: p.capex_eur == null ? 1 : 0,
+            sortr: -R(siteCapex)
+          }
+        });
+      });
     }
-  })));
+  });
   feats.sort((a, b) => a.properties.sortr - b.properties.sortr);
   return { type: 'FeatureCollection', features: feats };
 }
 function regionAgg() {
   const agg = {};
-  visible().forEach(p => p.sites.forEach(s => {
-    const r = s.region in REGC ? s.region : p.region;
-    if (!(r in REGC)) return;
-    agg[r] = agg[r] || { eur: 0, n: new Set() };
-    if (s.share_eur) agg[r].eur += s.share_eur;
-    agg[r].n.add(p.id);
-  }));
+  visible().forEach(p => {
+    if (p.sites && p.sites.length > 0) {
+      p.sites.forEach(s => {
+        const r = s.region in REGC ? s.region : p.region;
+        if (!(r in REGC)) return;
+        agg[r] = agg[r] || { eur: 0, n: new Set() };
+        // Calculer le CAPEX du site
+        const siteCapex = s.share_eur || (p.capex_eur && p.capex_eur / p.sites.length) || 0;
+        agg[r].eur += siteCapex;
+        agg[r].n.add(p.id);
+      });
+    }
+  });
   return agg;
 }
 function regionFeatures() {
@@ -457,6 +472,7 @@ if (map) map.on('load', () => {
 function openPopup(p, si, lngLat) {
   const s = p.sites[si];
   const multi = p.sites.length > 1;
+  const siteCapex = s && (s.share_eur || (p.capex_eur && p.capex_eur / p.sites.length) || 0);
   const presCls = p.presence === 'Yes' ? 'yes' : p.presence === 'No' ? 'no' : 'unk';
   const presTitle = p.presence === 'Yes' ? 'Déjà implanté en France'
     : p.presence === 'No' ? 'Premier investissement en France' : 'Implantation à confirmer';
@@ -465,7 +481,7 @@ function openPopup(p, si, lngLat) {
     <h3>${p.client}</h3>
     <div class="pp-meta">${p.citizenship} · ${p.sector}${s ? ' · ' + s.name : ''}</div>
     <div class="pp-tt"><span>Secteur T&amp;T</span> ${p.family}</div>
-    <div class="pp-cap"><b>${p.capex}</b>${multi && p.capex_eur ? `· réparti sur ${p.sites.length} sites (≈${fmtEur(s.share_eur)}/site)` : ''}</div>
+    <div class="pp-cap"><b>${p.capex}</b>${multi && p.capex_eur ? `· réparti sur ${p.sites.length} sites (≈${fmtEur(siteCapex)}/site)` : ''}</div>
     <p>${p.desc}</p>
     <div class="pp-pres ${presCls}"><b>${presTitle}</b>${p.presence_details}</div>
     <div class="pp-adv">

@@ -365,61 +365,66 @@ try {
 
 function siteFeatures() {
   const feats = [];
-  const FRANCE_CENTER = [2.6, 46.6]; // Centre approximatif de la France
-  const CENTER_OFFSET = 0.08; // ~8.8 km radius for distribution
+  const CENTER_OFFSET = 0.08;
+  const FRANCE_CENTER = [2.6, 46.6];
 
-  // Séparer mono-site et multi-site
-  const monoSites = [];
-  const multiSites = [];
+  const visible_projects = visible();
 
-  visible().forEach(p => {
+  // Collect all primary site locations with their projects
+  const locationMap = new Map();
+
+  visible_projects.forEach(p => {
     if (p.sites && p.sites.length > 0) {
-      if (p.sites.length === 1) {
-        monoSites.push(p);
-      } else {
-        multiSites.push(p);
+      const primarySite = p.sites[0];
+      const key = `${primarySite.lon},${primarySite.lat}`;
+      if (!locationMap.has(key)) {
+        locationMap.set(key, {
+          lon: primarySite.lon,
+          lat: primarySite.lat,
+          projects: []
+        });
       }
+      locationMap.get(key).projects.push(p);
     } else if (p.capex_eur && p.nationwide) {
-      multiSites.push(p);
+      // Nationwide projects without primary site
+      const key = `${FRANCE_CENTER[0]},${FRANCE_CENTER[1]}`;
+      if (!locationMap.has(key)) {
+        locationMap.set(key, {
+          lon: FRANCE_CENTER[0],
+          lat: FRANCE_CENTER[1],
+          projects: []
+        });
+      }
+      locationMap.get(key).projects.push(p);
     }
   });
 
-  // Afficher mono-sites au site principal
-  monoSites.forEach(p => {
-    const primarySite = p.sites[0];
-    const capex = p.capex_eur || 0;
-    const isEmptyCapex = capex === 0;
+  // Create features with offset only when multiple projects at same location
+  locationMap.forEach(location => {
+    location.projects.forEach((p, idx) => {
+      let lon = location.lon;
+      let lat = location.lat;
 
-    feats.push({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [primarySite.lon, primarySite.lat] },
-      properties: {
-        pid: p.id, si: 0, r: R(capex), color: p.color,
-        scolor: getPhaseColor(p.phase),
-        nc: isEmptyCapex ? 1 : 0,
-        sortr: isEmptyCapex ? 0 : -R(capex)
+      // Only apply offset if multiple projects at same location
+      if (location.projects.length > 1) {
+        const angle = (idx * 360 / location.projects.length) * (Math.PI / 180);
+        lon = location.lon + CENTER_OFFSET * Math.cos(angle);
+        lat = location.lat + CENTER_OFFSET * Math.sin(angle);
       }
-    });
-  });
 
-  // Afficher multi-sites au centre, décalés en cercle
-  multiSites.forEach((p, idx) => {
-    const angle = (idx * 360 / Math.max(multiSites.length, 1)) * (Math.PI / 180);
-    const offsetLon = FRANCE_CENTER[0] + CENTER_OFFSET * Math.cos(angle);
-    const offsetLat = FRANCE_CENTER[1] + CENTER_OFFSET * Math.sin(angle);
+      const capex = p.capex_eur || 0;
+      const isEmptyCapex = capex === 0;
 
-    const capex = p.capex_eur || 0;
-    const isEmptyCapex = capex === 0;
-
-    feats.push({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [offsetLon, offsetLat] },
-      properties: {
-        pid: p.id, si: 0, r: R(capex), color: p.color,
-        scolor: getPhaseColor(p.phase),
-        nc: isEmptyCapex ? 1 : 0,
-        sortr: isEmptyCapex ? 0 : -R(capex)
-      }
+      feats.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lon, lat] },
+        properties: {
+          pid: p.id, si: 0, r: R(capex), color: p.color,
+          scolor: getPhaseColor(p.phase),
+          nc: isEmptyCapex ? 1 : 0,
+          sortr: isEmptyCapex ? 0 : -R(capex)
+        }
+      });
     });
   });
 

@@ -261,11 +261,11 @@ const FR_BOUNDS = [[-5.4,41.2],[9.9,51.4]];
 const FAM = Object.fromEntries(DATA.families.map(f => [f.name, f.color]));
 
 const STAGES = [
-  { k: 'Annoncé', c: '#FFC107' },
-  { k: 'Études / Design', c: '#4CAF50' },
-  { k: 'Permis obtenu', c: '#9E9E9E' },
-  { k: 'Travaux démarrés', c: '#9E9E9E' },
-  { k: 'Opérationnel / Extension en cours', c: '#9E9E9E' },
+  { k: 'Annoncé', c: '#9aa4b1' },
+  { k: 'Études / Design', c: '#ffd43b' },
+  { k: 'Permis obtenu', c: '#4dabf7' },
+  { k: 'Travaux démarrés', c: '#51cf66' },
+  { k: 'Opérationnel / Extension en cours', c: '#20c997' },
 ];
 const STAGE_C = Object.fromEntries(STAGES.map(s => [s.k, s.c]));
 const COLOR_SECTOR = ['get', 'color'];
@@ -329,8 +329,8 @@ function renderLegend() {
       '<div class="lnote">Couleur du cercle = phase. Taille = CAPEX du site. Statut presse/officiel mi-juin 2026, à confirmer.</div>';
   } else {
     lg.innerHTML = '<h3>CAPEX par site</h3>' + [10e6, 100e6, 1e9, 10e9].map(e => {
-      const r = R(e), d = Math.ceil(r * 2) + 4;
-      return `<div class="lrow"><svg width="42" height="${d}" viewBox="0 0 42 ${d}"><circle cx="21" cy="${d / 2}" r="${r}"/></svg><span>${fmtEur(e)}</span></div>`;
+      const r = R(e), d = Math.ceil(r * 2) + 6, w = Math.max(50, Math.ceil(r * 2) + 8);
+      return `<div class="lrow"><svg width="${w}" height="${d}" viewBox="0 0 ${w} ${d}" style="overflow:visible"><circle cx="${w/2}" cy="${d / 2}" r="${r}"/></svg><span>${fmtEur(e)}</span></div>`;
     }).join('') + '<div class="lnote">Cercle blanc : montant non communiqué. Couleur : famille de secteur.</div>';
   }
 }

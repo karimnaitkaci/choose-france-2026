@@ -34,17 +34,22 @@ body{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
 }
-.brand{padding:24px 24px 16px}
+.brand{
+  padding:20px 24px 18px;
+  background:linear-gradient(135deg, rgba(255,184,28,.12), rgba(255,184,28,.04));
+  border-bottom:2px solid var(--amber);
+  margin-bottom:4px;
+}
 .eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:8px;font-weight:700;
 }
-.eyebrow::before{content:"";display:block;width:18px;height:2px;background:var(--amber)}
+.eyebrow::before{content:"";display:block;width:14px;height:2px;background:var(--amber)}
 h1{
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:31px;
-  letter-spacing:-.01em;margin-top:10px;line-height:1.04;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;
+  letter-spacing:-.01em;margin-top:8px;line-height:1.05;color:var(--txt);
 }
-h1 .y{color:var(--amber)}
+h1 .y{color:var(--amber);text-shadow:0 0 20px rgba(255,184,28,.3)}
 .sub{color:var(--mut);font-size:12.5px;margin-top:7px;line-height:1.5}
 /* KPI */
 .kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 24px 0}
@@ -127,8 +132,12 @@ h1 .y{color:var(--amber)}
   padding:2px 6px;border-radius:4px;text-transform:uppercase;flex:none;
 }
 /* FOOTER */
-.pfoot{padding:12px 24px 14px;border-top:1px solid var(--line);font-size:10px;color:var(--mut2);line-height:1.55}
-.pfoot b{color:var(--mut);font-weight:600}
+.pfoot{padding:16px 24px 18px;border-top:1px solid var(--line2);font-size:10px;color:var(--mut2);line-height:1.6}
+.pfoot b{color:var(--txt);font-weight:600}
+.contact-section{padding:14px 24px;background:linear-gradient(135deg, rgba(255,184,28,.08), transparent);border-bottom:1px solid var(--line);margin-bottom:8px}
+.contact-section p{margin:0;font-size:11px;color:var(--mut);line-height:1.5}
+.contact-section a{color:var(--amber);text-decoration:none;font-weight:600;transition:.2s}
+.contact-section a:hover{color:#ffcc4d}
 /* ---------------- MAP ---------------- */
 #mapwrap{flex:1;position:relative;height:100vh}
 #map{position:absolute;inset:0}
@@ -231,8 +240,13 @@ h1 .y{color:var(--amber)}
   <section class="regbars" id="regbars"></section>
   <div class="plist-head"><h2>Projets</h2><em id="plcount"></em></div>
   <section class="plist" id="plist"></section>
+  <div class="contact-section">
+    <p style="font-weight:600;color:var(--amber);margin-bottom:6px">🗺️ Cartographie réalisée par</p>
+    <p><b>Karim Nait-Kaci</b><br>Turner &amp; Townsend</p>
+    <p style="margin-top:8px"><a href="mailto:kmnaitkaci@gmail.com">✉️ kmnaitkaci@gmail.com</a></p>
+  </div>
   <footer class="pfoot">
-    <b>Sources :</b> dossier de presse officiel Choose France 2026 (montants maxima annoncés) ; implantations existantes : recherche complémentaire, à confirmer. Multi-sites : CAPEX réparti uniformément entre les sites nommés. Phase d'avancement : recherche presse et sources officielles à la mi-juin 2026, à confirmer. Fond de carte © OpenFreeMap · OpenStreetMap.<br><br><b>Préparé par Karim Nait-Kaci pour Turner &amp; Townsend</b><br>Contact : kmnaitkaci@gmail.com
+    <b>Sources :</b> dossier de presse officiel Choose France 2026 (montants maxima annoncés) ; implantations existantes : recherche complémentaire, à confirmer. Multi-sites : CAPEX réparti uniformément entre les sites nommés. Phase d'avancement : recherche presse et sources officielles à la mi-juin 2026, à confirmer. Fond de carte © OpenFreeMap · OpenStreetMap.
   </footer>
 </aside>
 <div id="mapwrap">

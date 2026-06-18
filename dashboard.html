@@ -369,25 +369,23 @@ function siteFeatures() {
 
   visible().forEach(p => {
     if (p.sites && p.sites.length > 0) {
-      // Afficher un cercle pour chaque site (avec ou sans CAPEX)
-      p.sites.forEach((s, si) => {
-        // Utiliser le share_eur du site, ou 0 si pas défini
-        const siteCapex = s.share_eur || 0;
-        const isEmptyCapex = siteCapex === 0;
+      // Un seul point par projet: afficher au site principal (premier site)
+      const primarySite = p.sites[0];
+      const capex = p.capex_eur || 0;  // Tout le CAPEX au site principal
+      const isEmptyCapex = capex === 0;
 
-        feats.push({
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
-          properties: {
-            pid: p.id, si, r: R(siteCapex), color: p.color,
-            scolor: getPhaseColor(p.phase),
-            nc: isEmptyCapex ? 1 : 0,
-            sortr: isEmptyCapex ? 0 : -R(siteCapex)
-          }
-        });
+      feats.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [primarySite.lon, primarySite.lat] },
+        properties: {
+          pid: p.id, si: 0, r: R(capex), color: p.color,
+          scolor: getPhaseColor(p.phase),
+          nc: isEmptyCapex ? 1 : 0,
+          sortr: isEmptyCapex ? 0 : -R(capex)
+        }
       });
     } else if (p.capex_eur && p.nationwide) {
-      // Cas spécial: Projet national sans sites mais avec CAPEX: afficher au centre
+      // Cas spécial: Projet national sans sites: afficher au centre de la France
       feats.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: FRANCE_CENTER },

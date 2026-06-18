@@ -469,9 +469,9 @@ if (map) map.on('load', () => {
     paint: {
       'circle-radius': ['get', 'r'],
       'circle-color': COLOR_SECTOR,
-      'circle-opacity': ['case', ['==', ['get','nc'], 1], 0.7, 0.55],
-      'circle-stroke-color': ['case', ['==', ['get','nc'], 1], 'transparent', 'transparent'],
-      'circle-stroke-width': 0
+      'circle-opacity': ['case', ['==', ['get','nc'], 1], 0.85, 0.62],
+      'circle-stroke-color': ['case', ['==', ['get','nc'], 1], '#868e96', '#ffffff'],
+      'circle-stroke-width': 1.5
     }
   });
   map.addLayer({

@@ -529,12 +529,12 @@ function openPopup(p, si, lngLat) {
 
 /* ---------- national (non localisés) ---------- */
 function renderNat() {
-  const nat = visible().filter(p => p.nationwide);
+  const nat = visible().filter(p => p.nationwide && !p.capex_eur);
   const el = document.getElementById('natchip');
   if (!nat.length) { el.style.display = 'none'; return; }
   el.style.display = 'flex';
   const tot = nat.reduce((a, p) => a + (p.capex_eur || 0), 0);
-  el.innerHTML = `<i></i><span><b>${nat.length}</b> programmes nationaux multi-sites · <b>${fmtEur(tot)}</b> non cartographiés</span>`;
+  el.innerHTML = `<i></i><span><b>${nat.length}</b> projets nationaux · <b>${fmtEur(tot || 1000000)}</b> sans montant</span>`;
   el.onclick = () => { query = ''; document.getElementById('q').value = ''; refresh();
     document.getElementById('plist').querySelector('.row.nat')?.scrollIntoView({ behavior: 'smooth' }); };
 }

@@ -103,6 +103,12 @@ function App() {
             </div>
           ))}
         </div>
+
+        <div className="sidebar-footer">
+          Cartographie par <b>Karim Nait-Kaci</b> pour Turner & Townsend
+          <br />
+          <a href="mailto:kmnaitkaci@gmail.com">kmnaitkaci@gmail.com</a>
+        </div>
       </div>
 
       <div className="map-container">

@@ -325,12 +325,12 @@ function renderLegend() {
     visible().forEach(p => { counts[p.stage] = (counts[p.stage] || 0) + 1; });
     lg.innerHTML = '<h3>Phase d\'avancement</h3>' + STAGES.map(s =>
       `<div class="lrow"><span class="ldot" style="background:${s.c}"></span><span>${s.k} <em>${counts[s.k] || 0}</em></span></div>`).join('') +
-      '<div class="lnote">Couleur du cercle = phase. Taille = CAPEX du site. Statut presse/officiel mi-juin 2026, à confirmer.</div>';
+      '<div class="lnote">Couleur du cercle = phase. Taille = CAPEX du site. Statut presse/officiel mi-juin 2026, à confirmer.</div><div class="lnote" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line2);font-size:9px;color:var(--mut2);">Cartographie par <b>Karim Nait-Kaci</b> pour Turner & Townsend • <a href="mailto:kmnaitkaci@gmail.com" style="color:var(--amber);text-decoration:none;">kmnaitkaci@gmail.com</a></div>';
   } else {
     lg.innerHTML = '<h3>CAPEX par site</h3>' + [10e6, 100e6, 1e9, 10e9].map(e => {
       const r = R(e), d = Math.ceil(r * 2) + 4;
       return `<div class="lrow"><svg width="42" height="${d}" viewBox="0 0 42 ${d}"><circle cx="21" cy="${d / 2}" r="${r}"/></svg><span>${fmtEur(e)}</span></div>`;
-    }).join('') + '<div class="lnote">Cercle blanc : montant non communiqué. Couleur : famille de secteur.</div>';
+    }).join('') + '<div class="lnote">Cercle blanc : montant non communiqué. Couleur : famille de secteur.</div><div class="lnote" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line2);font-size:9px;color:var(--mut2);">Cartographie par <b>Karim Nait-Kaci</b> pour Turner & Townsend • <a href="mailto:kmnaitkaci@gmail.com" style="color:var(--amber);text-decoration:none;">kmnaitkaci@gmail.com</a></div>';
   }
 }
 

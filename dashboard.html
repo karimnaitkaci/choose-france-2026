@@ -369,52 +369,25 @@ function siteFeatures() {
 
   visible().forEach(p => {
     if (p.sites && p.sites.length > 0) {
-      // Vérifier si tous les sites ont un share_eur
-      const sitesWithCapex = p.sites.filter(s => s.share_eur);
+      // Afficher un cercle pour chaque site (avec ou sans CAPEX)
+      p.sites.forEach((s, si) => {
+        // Utiliser le share_eur du site, ou 0 si pas défini
+        const siteCapex = s.share_eur || 0;
+        const isEmptyCapex = siteCapex === 0;
 
-      if (sitesWithCapex.length === p.sites.length) {
-        // Cas 1: tous les sites ont un CAPEX défini
-        p.sites.forEach((s, si) => {
-          feats.push({
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
-            properties: {
-              pid: p.id, si, r: R(s.share_eur), color: p.color,
-              scolor: getPhaseColor(p.phase),
-              nc: 0,
-              sortr: -R(s.share_eur)
-            }
-          });
-        });
-      } else if (p.capex_eur) {
-        // Cas 2: sites sans CAPEX spécifique mais CAPEX total → un point au centre
         feats.push({
           type: 'Feature',
-          geometry: { type: 'Point', coordinates: FRANCE_CENTER },
+          geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
           properties: {
-            pid: p.id, si: 0, r: R(p.capex_eur), color: p.color,
+            pid: p.id, si, r: R(siteCapex), color: p.color,
             scolor: getPhaseColor(p.phase),
-            nc: 0,
-            sortr: -R(p.capex_eur)
+            nc: isEmptyCapex ? 1 : 0,
+            sortr: isEmptyCapex ? 0 : -R(siteCapex)
           }
         });
-      } else {
-        // Cas 3: pas de CAPEX du tout → petits cercles à chaque site
-        p.sites.forEach((s, si) => {
-          feats.push({
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
-            properties: {
-              pid: p.id, si, r: R(0), color: p.color,  // R(0) = rayon minimum (10px)
-              scolor: getPhaseColor(p.phase),
-              nc: 1,  // Mark as "no capex"
-              sortr: 0
-            }
-          });
-        });
-      }
+      });
     } else if (p.capex_eur && p.nationwide) {
-      // Cas 4: Projet national sans sites mais avec CAPEX: afficher au centre de la France
+      // Cas spécial: Projet national sans sites mais avec CAPEX: afficher au centre
       feats.push({
         type: 'Feature',
         geometry: { type: 'Point', coordinates: FRANCE_CENTER },

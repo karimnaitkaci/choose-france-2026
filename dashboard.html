@@ -250,7 +250,7 @@ const DATA = {"families":[{"name":"Data Center","color":"#F08C00"},{"name":"Ener
 const fmtEur = e => e == null ? 'n.c.' :
   e >= 1e9 ? (Math.round(e/1e8)/10).toLocaleString('fr-FR') + ' Md€'
            : Math.round(e/1e6).toLocaleString('fr-FR') + ' M€';
-const R = e => e ? Math.min(30, Math.max(5, 4.4 + 3.4 * Math.log10(e/1e6))) : 4.5;
+const R = e => e ? Math.min(46, Math.max(8, 8 + 4.6 * Math.log10(Math.max(e,1e6)/1e6))) : 10;
 const REGC = {
   'Île-de-France':[2.50,48.71],'Hauts-de-France':[2.88,49.97],'Grand Est':[5.62,48.69],
   'Normandie':[0.10,49.12],'Bretagne':[-2.84,48.20],'Pays de la Loire':[-0.82,47.47],
@@ -272,7 +272,7 @@ const STAGES = [
   { k: 'Opérationnel / Extension en cours', c: '#20c997' },
 ];
 const STAGE_C = Object.fromEntries(STAGES.map(s => [s.k, s.c]));
-const COLOR_SECTOR = ['case', ['==', ['get', 'nc'], 1], '#ffffff', ['get', 'color']];
+const COLOR_SECTOR = ['get', 'color'];
 const COLOR_STAGE = ['get', 'scolor'];
 const esc = s => String(s == null ? '' : s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
 const ynCls = v => v === 'Oui' ? 'y' : v === 'Non' ? 'n' : 'u';

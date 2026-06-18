@@ -387,8 +387,7 @@ h1 .y{color:var(--amber)}
 .pfoot{padding:12px 24px 14px;border-top:1px solid var(--line);font-size:10px;color:var(--mut2);line-height:1.55}
 .pfoot b{color:var(--mut);font-weight:600}
 /* ---------------- MAP ---------------- */
-#mapwrap{flex:1;position:relative;height:100vh}
-#map{position:absolute;inset:0}
+
 .maplibregl-popup{max-width:340px !important;font-family:'Archivo',sans-serif}
 .maplibregl-popup-content{
   background:#fdfdfb;color:#1b2027;border-radius:12px;padding:0;overflow:hidden;
@@ -450,7 +449,7 @@ h1 .y{color:var(--amber)}
   body{flex-direction:column;overflow:auto}
   #panel{width:100%;min-width:0;height:auto;max-height:none;border-right:0}
   .plist{max-height:300px}
-  #mapwrap{height:70vh;min-height:480px}
+
 }
 </style>
 </head>
@@ -566,12 +565,12 @@ let activePhases = new Set(DATA.phases.map(p => p.name));
 
 // Créer les chips de phases
 const phasesContainer = document.createElement('div');
-phasesContainer.style.cssText = 'padding: 10px 24px 5px; border-top: 1px solid var(--line); margin-top: 8px;';
-phasesContainer.innerHTML = '<div style="font-size: 10px; text-transform: uppercase; letter-spacing: .16em; color: var(--mut2); margin-bottom: 8px;">Phase d\'avancement</div>';
+phasesContainer.style.cssText = 'padding: 8px 24px 4px; border-top: 1px solid var(--line); margin-top: 6px;';
+phasesContainer.innerHTML = '<div style="font-size: 9px; text-transform: uppercase; letter-spacing: .16em; color: var(--mut2); margin-bottom: 6px;">Phase</div>';
 
 const phasesChipsEl = document.createElement('div');
 phasesChipsEl.className = 'filters';
-phasesChipsEl.style.cssText = 'padding: 0 !important; margin: 0 !important;';
+phasesChipsEl.style.cssText = 'display: flex; flex-wrap: wrap; gap: 6px; padding: 0 !important; margin: 0 !important;';
 
 DATA.phases.forEach(phase => {
   const n = DATA.projects.filter(p => p.phase === phase.name).length;
@@ -616,15 +615,19 @@ try {
 
 function siteFeatures() {
   const feats = [];
-  visible().forEach(p => p.sites.forEach((s, si) => feats.push({
-    type: 'Feature',
-    geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
-    properties: {
-      pid: p.id, si, r: R(s.share_eur), color: p.color,
-      nc: p.capex_eur == null ? 1 : 0,
-      sortr: -R(s.share_eur)
-    }
-  })));
+  visible().forEach(p => p.sites.forEach((s, si) => {
+    // Ne pas afficher les sites sans CAPEX
+    if (!s.share_eur) return;
+    feats.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [s.lon, s.lat] },
+      properties: {
+        pid: p.id, si, r: R(s.share_eur), color: p.color,
+        nc: p.capex_eur == null ? 1 : 0,
+        sortr: -R(s.share_eur)
+      }
+    });
+  }));
   feats.sort((a, b) => a.properties.sortr - b.properties.sortr);
   return { type: 'FeatureCollection', features: feats };
 }
@@ -659,10 +662,10 @@ if (map) map.on('load', () => {
     id: 'site-circles', type: 'circle', source: 'sites',
     paint: {
       'circle-radius': ['get', 'r'],
-      'circle-color': ['case', ['==', ['get','nc'], 1], '#ffffff', ['get', 'color']],
-      'circle-opacity': ['case', ['==', ['get','nc'], 1], 0.85, 0.62],
-      'circle-stroke-color': ['case', ['==', ['get','nc'], 1], '#868e96', '#ffffff'],
-      'circle-stroke-width': 1.5
+      'circle-color': ['get', 'color'],
+      'circle-opacity': 0.75,
+      'circle-stroke-color': '#ffffff',
+      'circle-stroke-width': 1.8
     }
   });
   map.addLayer({

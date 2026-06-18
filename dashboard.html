@@ -232,7 +232,7 @@ h1 .y{color:var(--amber)}
   <div class="plist-head"><h2>Projets</h2><em id="plcount"></em></div>
   <section class="plist" id="plist"></section>
   <footer class="pfoot">
-    <b>Sources :</b> dossier de presse officiel Choose France 2026 (montants maxima annoncés) ; implantations existantes : recherche complémentaire, à confirmer. Multi-sites : CAPEX réparti uniformément entre les sites nommés. Phase d'avancement : recherche presse et sources officielles à la mi-juin 2026, à confirmer. Fond de carte © OpenFreeMap · OpenStreetMap.
+    <b>Sources :</b> dossier de presse officiel Choose France 2026 (montants maxima annoncés) ; implantations existantes : recherche complémentaire, à confirmer. Multi-sites : CAPEX réparti uniformément entre les sites nommés. Phase d'avancement : recherche presse et sources officielles à la mi-juin 2026, à confirmer. Fond de carte © OpenFreeMap · OpenStreetMap.<br><br><b>Préparé par Karim Nait-Kaci pour Turner &amp; Townsend</b><br>Contact : kmnaitkaci@gmail.com
   </footer>
 </aside>
 <div id="mapwrap">
@@ -394,9 +394,9 @@ if (map) map.on('load', () => {
     paint: {
       'circle-radius': ['get', 'r'],
       'circle-color': COLOR_SECTOR,
-      'circle-opacity': ['case', ['==', ['get','nc'], 1], 0.85, 0.62],
-      'circle-stroke-color': ['case', ['==', ['get','nc'], 1], '#868e96', '#ffffff'],
-      'circle-stroke-width': 1.5
+      'circle-opacity': ['case', ['==', ['get','nc'], 1], 0.7, 0.55],
+      'circle-stroke-color': ['case', ['==', ['get','nc'], 1], 'transparent', 'transparent'],
+      'circle-stroke-width': 0
     }
   });
   map.addLayer({

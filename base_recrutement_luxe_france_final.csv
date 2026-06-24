@@ -47,22 +47,29 @@ P3,ESTEE LAUDER,Estée Lauder,HR Manager,Nayibe,Mendoza,HR Professional Estée L
 P3,LVMH,LVMH Wines & Spirits,HR Manager,Daniel,Konicek,Director Talent Development & Executive,https://www.linkedin.com/in/danielkonicek,Paris,Vins & Spiritueux,Important
 P3,KERING,Saint Laurent,CEO,Cédric,Charbit,Chief Executive Officer Saint Laurent,https://fr.linkedin.com/in/cedric-charbit-061458b3,Paris,Mode & Maroquinerie,TRÈS IMPORTANT
 P3,KERING,Boucheron,HR Manager,Laurent,Claquin,HR Professional Boucheron,https://www.linkedin.com/in/laurent-claquin-9baba871/,Paris,Joaillerie & Montres,Important
-P3,RICHEMONT,Van Cleef & Arpels,HR Manager,,,HR Team Van Cleef & Arpels,,Paris,Joaillerie & Montres,Important
+P1,RICHEMONT,Van Cleef & Arpels,DRH,Amélie,Blanc,Responsable RH Van Cleef & Arpels,https://fr.linkedin.com/in/amelieblanc,Paris,Joaillerie & Montres,Important
+P1,RICHEMONT,Van Cleef & Arpels,MD,Magali,Jallot,Managing Director France Van Cleef & Arpels,https://fr.linkedin.com/in/magali-jallot-78939bb,Paris,Joaillerie & Montres,Important
 P3,ESSILORLUXOTTICA,Ray-Ban,CEO,Francesco,Milleri,CEO EssilorLuxottica,https://www.linkedin.com/search/results/people/?keywords=Francesco%20Milleri%20EssilorLuxottica,Milan/Paris,Lunetterie Luxe,Important
 P3,INDÉPENDANT,Burberry,HR Director,Olivia,Barker,Global Talent Director Burberry,https://www.linkedin.com/search/results/people/?keywords=Olivia%20Barker%20Burberry,London/Paris,Mode & Accessoires,Modéré
 P3,INDÉPENDANT,Burberry,HR Manager,Audra,Guglielmetti,HR Professional Burberry,https://www.linkedin.com/in/audra-guglielmetti/,London,Mode & Accessoires,Modéré
 P3,INDÉPENDANT,Ferrari,VP Talent,Sasa,Ferrari,VP of Talent Acquisition,https://www.linkedin.com/in/sasa-ferrari-talentacquisition/,USA/Modena,Automobile Luxe,Faible - Niche
 P3,INDÉPENDANT,Ferrari,HR Manager,Glenna,Antczak,HR Professional Ferrari,https://www.linkedin.com/in/glenna-antczak-27262510/,North America,Automobile Luxe,Faible - Niche
 P1,LVMH,Fendi,HR Manager,Enrico,Sorenti,Président Fendi France,https://www.linkedin.com/search/results/people/?keywords=Enrico%20Sorenti%20Fendi,Paris,Mode & Maroquinerie,Important
-P1,LVMH,Céline,HR Manager,,,HR Team Céline,,Paris,Mode & Maroquinerie,Important
-P1,LVMH,Givenchy,HR Manager,,,HR Team Givenchy,,Paris,Mode & Maroquinerie,Modéré
-P1,LVMH,Bulgari,HR Manager,,,HR Team Bulgari,,Paris,Joaillerie & Montres,Important
-P1,LVMH,Chaumet,HR Manager,,,HR Team Chaumet,,Paris,Joaillerie & Montres,Modéré
+P1,LVMH,Céline,DRH,Anna,Briem,Chief HR Officer LVMH Fashion Group,https://www.linkedin.com/in/anna-briem-4a39832/,Paris,Mode & Maroquinerie,TRÈS IMPORTANT
+P1,LVMH,Céline,DRH,Michèle,Amiel,DRH LVMH Fashion Activity Group,https://fr.linkedin.com/in/mich%C3%A8le-amiel-a649503b,Paris,Mode & Maroquinerie,Important
+P1,LVMH,Givenchy,GM,Aymeric,Martin,General Manager Givenchy,https://sg.linkedin.com/in/aymeric-martin-88b1466b,Paris,Mode & Maroquinerie,Important
+P1,LVMH,Bulgari,HR Director,Isabelle,Castellini,Human Resources VP Bulgari,https://www.linkedin.com/in/isabelle-castellini/,Paris/Rome,Joaillerie & Montres,Important
+P1,LVMH,Bulgari,HR Manager,Adélaïde,de Feuilhade,Deputy Director HR Bulgari Hotel Paris,N/A,Paris,Joaillerie & Montres,Modéré
+P1,LVMH,Chaumet,DRH,Caroline,Clement-Boye,HR Director Chaumet Europe,https://www.linkedin.com/in/caroline-clement-boye-a35a121b/,Paris,Joaillerie & Montres,Important
+P1,LVMH,Chaumet,HR Manager,Ségolène,Lorre Denecque,Responsable RH Opérations Chaumet,https://fr.linkedin.com/in/s%C3%A9gol%C3%A8ne-lorre-denecque-106632a6,Paris,Joaillerie & Montres,Modéré
 P1,KERING,Kering HR Team,HR Manager,Luis Guillermo,Restrepo Angel,HR Professional Kering,https://www.linkedin.com/in/luisgrestrepo,Paris,Groupe,Important
 P1,KERING,Kering HR Team,HR Manager,Jérôme,Le Brethon,HR Professional Kering,https://www.linkedin.com/in/jérôme-le-brethon-66752132/,Paris,Groupe,Important
 P1,KERING,Saint Laurent,HR Manager,Shelley Xi,Yang,HR Professional Saint Laurent,https://www.linkedin.com/in/shelley-xi-yang/,China/Paris,Mode & Maroquinerie,Important
-P1,KERING,Balenciaga,HR Manager,,,HR Team Balenciaga,,Paris,Mode & Maroquinerie,Modéré
-P1,RICHEMONT,Boucheron,HR Manager,,,HR Team Boucheron,,Paris,Joaillerie & Montres,Important
+P1,KERING,Gucci,Chief People Officer,Raffaella,Santoro,Chief People Officer EMEA Gucci,https://www.linkedin.com/in/raffaella-santoro-1812113/,Paris/Florence,Mode & Maroquinerie,Important
+P1,KERING,Gucci,HR Director,Lucinda,Rosso,EVP & Chief People Officer Gucci Americas,https://www.linkedin.com/in/lucinda-rosso-97b8225/,Florence/Paris,Mode & Maroquinerie,Important
+P1,KERING,Balenciaga,Chief People Officer,Beatrice,Lazat,Chief People Officer Kering,https://fr.linkedin.com/in/beatricelazat,Paris,Mode & Maroquinerie,Important
+P1,KERING,Balenciaga,HR Manager,,,HR Team Balenciaga Extended,,Paris,Mode & Maroquinerie,Modéré
+P1,RICHEMONT,Boucheron,Chief People Officer,Beatrice,Lazat,Chief People Officer Kering (covers Boucheron),https://fr.linkedin.com/in/beatricelazat,Paris,Joaillerie & Montres,Important
 P1,INDÉPENDANT,Hermès,HR Manager,Marion,Bousselat,Directrice Ressources Humaines Hermès,https://fr.linkedin.com/in/marion-bousselat-185058101,Paris,Mode & Maroquinerie,Important
 P1,INDÉPENDANT,Hermès,HR Manager,Shekar,Chandra,Manager HR & Recruitment Hermes Inc,https://www.linkedin.com/in/shekar-chandra-a76b5862/,USA/Paris,Mode & Maroquinerie,Important
 P1,INDÉPENDANT,Hermès,HR Manager,Joanna,Ingrao,HR Professional Hermès,https://www.linkedin.com/in/joanna-ingrao-a2177521/,Paris,Mode & Maroquinerie,Important
@@ -91,7 +98,7 @@ P2,LVMH,Louis Vuitton,HR Team Manager,Olivier,Sastre,Senior VP Human Resources,h
 P2,LVMH,Louis Vuitton,HR Manager,Cathie,Pezard,Director of HR International Leather Goods,https://www.linkedin.com/in/cathie-pezard-878aa717/,Île-de-France,Mode & Maroquinerie,Modéré
 P2,LVMH,Christian Dior,HR Manager,Alexandra,De Rancogne,HR Professional Christian Dior Couture,https://www.linkedin.com/in/alexandra-de-rancogne-2347ba7/,Paris/New York,Mode & Parfums,Modéré
 P2,LVMH,Christian Dior,HR Manager,Nicole,Guidry,Director Human Resources Christian Dior,https://www.linkedin.com/in/nicole-guidry-79458137/,USA/Paris,Mode & Parfums,Modéré
-P2,LVMH,Make Up For Ever,HR Manager,,,HR Team Make Up For Ever,,Paris,Parfums & Cosmétiques,Important
+P1,LVMH,Make Up For Ever,HR Director,Mathilde,Meunier,Global HR Director (now at Guerlain),https://fr.linkedin.com/in/mathilde-meunier-94828031/,Paris,Parfums & Cosmétiques,Important
 P2,LVMH,Moët & Chandon,HR Manager,,,HR Team Moët & Chandon,,Épernay,Vins & Spiritueux,Important
 P2,LVMH,Hennessy,HR Manager,,,HR Team Hennessy,,Cognac,Vins & Spiritueux,Important
 P2,LVMH,Sephora,HR Manager,,,HR Manager Sephora Paris,,Paris,Distribution,TRÈS IMPORTANT

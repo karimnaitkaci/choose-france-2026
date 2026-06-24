@@ -1,0 +1,60 @@
+Groupe,Secteur,Marque,Siège France,Pays d'Origine,CEO/Président,Email CEO,DRH (Directeur Ressources Humaines),Email DRH,DAF (Directeur Admin Financier),Équipe RH - Manager 1,Équipe RH - Manager 2,Équipe RH - Manager 3,Localisation Principale,Note Importance Recrutement
+LVMH,Mode & Maroquinerie,Louis Vuitton,Paris 8e,France,Delphine Arnault,N/A,Julien Bourgeois,N/A,N/A,Marie Bertrel,Olivier Sastre (ex),Cathie Pezard,Paris,TRÈS IMPORTANT - Volume énorme
+LVMH,Mode & Maroquinerie,Dior,Paris 8e,France,Antoine Arnault (Groupe),N/A,Agnès Pinel (Parfums Dior),N/A,N/A,Alexandra de Rancogne,Nicole Guidry,Jerome Sauvage,Paris,TRÈS IMPORTANT - Volume importante
+LVMH,Mode & Maroquinerie,Céline,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Nouvelle direction
+LVMH,Mode & Maroquinerie,Saint Laurent,Paris,France,Cédric Charbit,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,TRÈS IMPORTANT - Croissance +7-9%
+LVMH,Mode & Maroquinerie,Fendi,Paris 8e,France,Pierre-Emmanuel Angeloglou,N/A,N/A,N/A,N/A,Enrico Sorenti (Président Fendi France),N/A,N/A,Paris,Important - Marque italienne
+LVMH,Mode & Maroquinerie,Givenchy,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Modéré - Prestige
+LVMH,Mode & Maroquinerie,Loewe,Madrid / Paris,Espagne,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Madrid,Modéré
+LVMH,Mode & Maroquinerie,Kenzo,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Modéré - Marque phare
+LVMH,Mode & Maroquinerie,Berluti,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Faible à Modéré - Niche
+LVMH,Joaillerie & Montres,Bulgari,Rome / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (office France),Important - Prestige
+LVMH,Joaillerie & Montres,Chaumet,Paris 1er,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Faible à Modéré - Heritage
+LVMH,Joaillerie & Montres,Fred,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Faible - Niche luxury
+LVMH,Joaillerie & Montres,Hublot,Nyon / Paris,Suisse,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Nyon/Paris,Modéré
+LVMH,Joaillerie & Montres,Zenith,Nyon / Paris,Suisse,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Nyon,Modéré
+LVMH,Joaillerie & Montres,Loro Piana,Venezia / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (office),Modéré
+LVMH,Parfums & Cosmétiques,Guerlain,Levallois-Perret,France,Gabrielle Saint-Genis Rodriguez,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Levallois,TRÈS IMPORTANT - Marque emblématique
+LVMH,Parfums & Cosmétiques,Christian Dior Parfums,Paris 8e,France,Véronique Courtois,N/A,Agnès Pinel,N/A,N/A,N/A,N/A,N/A,Paris,TRÈS IMPORTANT - Volume énorme
+LVMH,Parfums & Cosmétiques,Maison Francis Kurkdjian,Paris,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Modéré - Premium
+LVMH,Parfums & Cosmétiques,Benefit Cosmetics,Paris,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Modéré
+LVMH,Parfums & Cosmétiques,Make Up For Ever,Paris,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Volume croissant
+LVMH,Vins & Spiritueux,Moët & Chandon,Épernay,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Épernay,Important - Champagne
+LVMH,Vins & Spiritueux,Hennessy,Cognac,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Cognac,Important - Cognac
+LVMH,Vins & Spiritueux,Clos des Lambrays,Bourgogne,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Bourgogne,Faible - Niche
+LVMH,Distribution,Sephora,Paris,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (sièges régionaux),TRÈS IMPORTANT - Nombreux recrutements
+LVMH,Groupe LVMH,LVMH Groupe,Paris 8e (Avenue Montaigne),France,Bernard Arnault (Président),N/A,Maud Alvarez-Pereyne (Head of HR),N/A,N/A,Gena Smith,N/A,N/A,Paris,Stratégique - Groupe entier
+KERING,Mode & Maroquinerie,Gucci,Florence / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (office France),TRÈS IMPORTANT - Prestige énorme
+KERING,Mode & Maroquinerie,Saint Laurent,Paris 6e,France,Cédric Charbit,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,TRÈS IMPORTANT - Croissance +7-9%
+KERING,Mode & Maroquinerie,Balenciaga,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Marque haute couture
+KERING,Mode & Maroquinerie,Bottega Veneta,Milan / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Milan,Modéré
+KERING,Mode & Maroquinerie,Alexander McQueen,Londres / Paris,UK,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (office),Modéré
+KERING,Mode & Maroquinerie,Brioni,Rome / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Rome,Faible - Niche
+KERING,Joaillerie & Montres,Boucheron,Paris Place Vendôme,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Prestige
+KERING,Joaillerie & Montres,Pomellato,Milan / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Milan,Modéré
+KERING,Joaillerie & Montres,Dodo,Milan / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Milan,Faible - Niche
+KERING,Groupe Kering,Kering Groupe,Paris 7e,France,Luca De Meo (Nouveau PDG 2025),N/A,N/A,N/A,N/A,Laurent Claquin,Luis Guillermo Restrepo,Jérôme Le Brethon,Paris,Stratégique - Groupe entier
+RICHEMONT,Joaillerie & Montres,Cartier,Paris Place Vendôme,France,Louis Ferla (CEO Cartier),N/A,Zyla Akiti (HR Director),N/A,N/A,N/A,N/A,N/A,Paris,TRÈS IMPORTANT - Prestige maximum
+RICHEMONT,Joaillerie & Montres,Van Cleef & Arpels,Paris Place Vendôme,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Prestige énorme
+RICHEMONT,Joaillerie & Montres,A. Lange & Söhne,Dresde / Paris,Allemagne,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Dresde,Modéré
+RICHEMONT,Joaillerie & Montres,IWC Schaffhausen,Schaffhausen / Paris,Suisse,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Suisse,Modéré
+RICHEMONT,Joaillerie & Montres,Jaeger-LeCoultre,Vallée de Joux / Paris,Suisse,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Suisse,Modéré
+RICHEMONT,Joaillerie & Montres,Vacheron Constantin,Genève / Paris,Suisse,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Genève,Modéré - Prestige
+RICHEMONT,Joaillerie & Montres,Montblanc,Hamburg / Paris,Allemagne,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Hamburg,Modéré
+RICHEMONT,Mode & Accessoires,Chloé,Paris 8e,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris,Important - Maison française
+RICHEMONT,Mode & Accessoires,Alfred Dunhill,Londres / Paris,UK,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Londres,Modéré
+RICHEMONT,Groupe Richemont,Richemont Groupe,Genève / Paris,Suisse,Nicolas Bos (CEO),N/A,Marie-Aude Stocker (Chief People Officer),N/A,N/A,N/A,N/A,N/A,Genève/Paris,Stratégique - Groupe entier
+INDÉPENDANT,Mode & Maroquinerie,Hermès,Paris 8e,France,Axel Dumas (PDG),N/A,Sharon MacBeath (Director HR),N/A,N/A,Jérôme Fremont (Hermès Parfums),Augustin De Champeaux,Marion Bousselat,Paris,TRÈS IMPORTANT - Volume énorme + Expansion
+INDÉPENDANT,Mode & Maroquinerie,Chanel,Paris 8e,France,Leena Nair (CEO World),N/A,N/A,N/A,N/A,Dara Bliss,Anne-Claire Girault-Pouget,Larissa Zavala,Paris,TRÈS IMPORTANT - Très fermé mais prestige max
+INDÉPENDANT,Vêtements Premium,Moncler,Milan / Paris,Italie,Bartolomeo Rongone (CEO depuis April 2026),N/A,Alexandre Gerno (HR Director Europe Middle East),N/A,N/A,Lorenzo Cirasaro,N/A,N/A,Milan/Paris,Important - Croissance +10%
+INDÉPENDANT,Mode Luxe,Brunello Cucinelli,Pérouse / Paris,Italie,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Pérouse,Modéré - Croissance stable
+INDÉPENDANT,Mode & Accessoires,Prada,Milan / Paris,Italie,N/A,N/A,Valentina Verchiani (HR MIU MIU & Group Communication),N/A,N/A,N/A,N/A,N/A,Milan,Important - Marque italienne prestige
+INDÉPENDANT,Mode & Accessoires,Burberry,Londres / Paris,UK,N/A,N/A,Olivia Barker (Global Talent Director),N/A,N/A,Audra Guglielmetti,N/A,N/A,Londres,Modéré - Focus digital
+INDÉPENDANT,Automobile Luxe,Ferrari,Modène / Paris,Italie,N/A,N/A,Sasa Ferrari (VP Talent Acquisition),N/A,N/A,Glenna Antczak,N/A,N/A,Modène,Faible - Niche automobile
+INDÉPENDANT,Automobile Ultra-Luxe,Rolls-Royce,Goodwood / Paris,UK,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Goodwood,Très faible - Ultra-niche
+ACCOR,Hôtellerie Luxe,Raffles,Paris & Worldwide,Singapour/France,Omer Acar (Directeur Général),N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (offices),TRÈS IMPORTANT - Expansion 2026-2027
+ACCOR,Hôtellerie Luxe,Fairmont,Worldwide / Paris,Canada,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (offices),TRÈS IMPORTANT - Expansion 2026-2027
+ACCOR,Hôtellerie Luxe,Sofitel Legend,Worldwide / Paris,France,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Paris (offices),Important - Marque française
+ACCOR,Hôtellerie Luxe,Accor Groupe,Paris,France,N/A,N/A,Salomé Révillion (Global VP Talent Acquisition),N/A,N/A,Vicente Jaramillo,Gill Lo,Dalia Kholeef,Paris,STRATÉGIQUE - Groupe entier
+LOREAL,Beauté & Cosmétiques,L'Oréal Luxe Division,Paris,France,N/A,N/A,N/A (VP Talent L'Oréal Luxe),N/A,N/A,Meredith Steinmeyer,Sean Donohue,Emma Shuttleworth,Paris,TRÈS IMPORTANT - Beauté digitale croissance
+ESTEE LAUDER,Beauté & Cosmétiques,Estée Lauder Groupe,New York / Paris,USA,N/A,N/A,Michael Bowes (EVP Chief People Officer),N/A,N/A,Jane Brokaw Eve,Nayibe Mendoza,Olivia De Vivo,New York/Paris,Important - Beauté premium croissance

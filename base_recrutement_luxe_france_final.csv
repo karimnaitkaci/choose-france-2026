@@ -93,7 +93,7 @@ P3,KERING,Bottega Veneta,HR Manager,Ioana,Zeres,HR Team Bottega Veneta,https://w
 P3,KERING,Brioni,HR Manager,Alessandro,Paparelli,HR Team Brioni,https://it.linkedin.com/in/alessandropaparelli,Rome/Paris,Mode & Maroquinerie,Faible
 P3,ESSILORLUXOTTICA,Persol,HR Manager,Emilene,Rocha,HR Team Persol,https://www.linkedin.com/in/emilene-rocha-shrm-scp/,Milan/Paris,Lunetterie Luxe,Important
 P3,ESSILORLUXOTTICA,Oliver Peoples,HR Manager,Rocco,Basilico,HR Team Oliver Peoples,https://www.linkedin.com/in/rocco-basilico-62055016a/,Milan/Paris,Lunetterie Luxe,Important
-P3,ESSILORLUXOTTICA,Alain Mikli,HR Manager,,,HR Team Alain Mikli,,Paris,Lunetterie Luxe,Modéré
+P3,ESSILORLUXOTTICA,Alain Mikli,HR Manager,Maxime,Maigne,HR Team Alain Mikli,https://www.linkedin.com/in/maxime-maigne/,Paris,Lunetterie Luxe,Modéré
 P2,LVMH,Louis Vuitton,HR Team Manager,Olivier,Sastre,Senior VP Human Resources,https://fr.linkedin.com/in/olivier-sastre-a69567112,Paris,Mode & Maroquinerie,Modéré
 P2,LVMH,Louis Vuitton,HR Manager,Cathie,Pezard,Director of HR International Leather Goods,https://www.linkedin.com/in/cathie-pezard-878aa717/,Île-de-France,Mode & Maroquinerie,Modéré
 P2,LVMH,Christian Dior,HR Manager,Alexandra,De Rancogne,HR Professional Christian Dior Couture,https://www.linkedin.com/in/alexandra-de-rancogne-2347ba7/,Paris/New York,Mode & Parfums,Modéré
@@ -105,7 +105,7 @@ P2,LVMH,Sephora,HR Manager,Linda,Skinner,HR Manager Sephora Paris,https://www.li
 P2,KERING,Gucci,HR Manager,Joane,Daoud,HR Team Gucci Paris,https://www.linkedin.com/in/joane-daoud-611631208/,Florence/Paris,Mode & Maroquinerie,Important
 P2,KERING,Saint Laurent,HR Manager,Laura,Green,HR Team Saint Laurent,https://www.linkedin.com/in/laura-green-7b153b197/,Paris,Mode & Maroquinerie,Important
 P2,KERING,Pomellato,HR Manager,Prisca,Centaure,HR Team Pomellato,https://www.linkedin.com/in/priscacentaure/,Milan/Paris,Joaillerie & Montres,Modéré
-P2,KERING,Dodo,HR Manager,,,HR Team Dodo,,Milan/Paris,Joaillerie & Montres,Faible
+P2,KERING,Dodo,HR Manager,Camille,de Dominicis,HR Team Dodo,https://fr.linkedin.com/in/camille-de-dominicis-4893aa13,Milan/Paris,Joaillerie & Montres,Faible
 P2,RICHEMONT,Cartier,HR Manager,Claire-Lise,Pelé Hemeryck,Additional HR Team Cartier,https://www.linkedin.com/in/claire-lise-pel%C3%A9-hemeryck-aa97a043/,Paris,Joaillerie & Montres,Important
 P2,RICHEMONT,Van Cleef & Arpels,HR Manager,Aurélie,Benard,HR Team Van Cleef & Arpels,https://ca.linkedin.com/in/aur%C3%A9lie-benard-a780832a,Paris,Joaillerie & Montres,Important
 P2,RICHEMONT,Jaeger-LeCoultre,HR Manager,Céline,J.,HR Team Jaeger-LeCoultre,https://ch.linkedin.com/in/cjeffredo/en,Vallée de Joux,Joaillerie & Montres,Modéré
@@ -117,20 +117,20 @@ P2,INDÉPENDANT,Hermès,HR Manager,Jim,Bures,HR Professional Hermès,https://www
 P2,INDÉPENDANT,Chanel,Recruiter,Shari,Katz,Talent Acquisition Team Chanel,https://www.linkedin.com/in/shari-katz-recruiter/,Paris,Mode & Maroquinerie,Important
 P2,INDÉPENDANT,Chanel,HR Manager,Maxine,Malikin,HR Operations Chanel,https://www.linkedin.com/in/maxine-malikin-b255b250/,Paris,Mode & Maroquinerie,Modéré
 P3,ACCOR,Accor Luxury,HR Manager,Sucheta,Banik,HR Team Accor Luxury,https://in.linkedin.com/in/sucheta-banik-299924174,Paris,Hôtellerie Luxe,Important
-P3,ACCOR,Fairmont,HR Manager,,,HR Team Fairmont Paris,,Paris,Hôtellerie Luxe,Important
+P3,ACCOR,Fairmont,HR Manager,Liz,George,HR Team Fairmont Paris,https://www.linkedin.com/in/liz-george-1756ab30/,Paris,Hôtellerie Luxe,Important
 P3,ACCOR,Orient Express,HR Manager,Andrea,Insam,HR Team Orient Express,https://www.linkedin.com/in/andrea-insam/,Paris,Hôtellerie Luxe,Important
 P3,LOREAL,L'Oréal Luxe,Employer Branding Manager,Sarah,F.,Employer Branding Team,https://fr.linkedin.com/in/sarah-f-98704b87,Paris,Beauté & Cosmétiques,Important
 P3,ESTEE LAUDER,Estée Lauder,HR Coordinator,Sarah,Curran,HR Administrative Team,https://uk.linkedin.com/in/sarah-curran-aa341228,New York/Paris,Beauté & Cosmétiques,Modéré
-P3,LVMH,Guerlain,HR Manager,,,HR Team Guerlain,,Levallois-Perret,Parfums & Cosmétiques,Important
-P3,LVMH,Kenzo,HR Manager,,,HR Team Kenzo,,Paris,Mode & Maroquinerie,Modéré
-P3,LVMH,Loewe,HR Manager,,,HR Team Loewe,,Paris,Mode & Maroquinerie,Modéré
-P3,LVMH,Berluti,HR Manager,,,HR Team Berluti,,Paris,Mode & Maroquinerie,Modéré
+P3,LVMH,Guerlain,HR Manager,Gabrielle,Saint-Genis,HR Team Guerlain,https://fr.linkedin.com/in/gabrielle-saint-genis-67148415,Levallois-Perret,Parfums & Cosmétiques,Important
+P3,LVMH,Kenzo,HR Manager,Gaël,Laudet,HR Team Kenzo,https://www.linkedin.com/in/ga%C3%ABl-laudet-85616b150/,Paris,Mode & Maroquinerie,Modéré
+P3,LVMH,Loewe,HR Manager,Lluís,Colom,HR Team Loewe,https://www.linkedin.com/in/llu%C3%ADscolom/,Paris,Mode & Maroquinerie,Modéré
+P3,LVMH,Berluti,HR Manager,Atsushi,Yatera,HR Team Berluti,https://www.linkedin.com/in/atsushi-yatera-6975b94b/,Paris,Mode & Maroquinerie,Modéré
 P3,KERING,Balenciaga,HR Manager,Elena,McCoy,HR Team Balenciaga Extended,https://www.linkedin.com/in/elena-mccoy-47180629a/,Paris,Mode & Maroquinerie,Modéré
 P3,KERING,Gucci,Recruitment Manager,Sébastien,Hueber,Recruitment Team Gucci,https://www.linkedin.com/in/s%C3%A9bastien-hueber-24491011a/,Paris,Mode & Maroquinerie,Important
 P3,RICHEMONT,Cartier,Recruitment Manager,Linley,Howley,Recruitment Team Cartier,https://www.linkedin.com/in/linley-howley-22249a228/,Paris,Joaillerie & Montres,Important
 P3,INDÉPENDANT,Hermès,Recruitment Manager,Clarisse,Gourier,Recruitment Team Hermès,https://fr.linkedin.com/in/clarisse-gourier-5aba97ba/en,Paris,Mode & Maroquinerie,Important
 P3,INDÉPENDANT,Chanel,Talent Acquisition Manager,Lori,Levine,Talent Acquisition Chanel,https://www.linkedin.com/in/lorilevine1001/,Paris,Mode & Maroquinerie,Important
-P3,INDÉPENDANT,Moncler,Recruitment Coordinator,,,Recruitment Team Moncler,,Paris/Milan,Vêtements Premium,Modéré
-P3,INDÉPENDANT,Prada,Recruitment Manager,,,Recruitment Team Prada,,Milan/Paris,Mode Luxe,Modéré
+P3,INDÉPENDANT,Moncler,Recruitment Coordinator,Carine,Le Ny,Recruitment Team Moncler,https://www.linkedin.com/in/carine-le-ny-b27b64b/,Paris/Milan,Vêtements Premium,Modéré
+P3,INDÉPENDANT,Prada,Recruitment Manager,Martina,Righeschi,Recruitment Team Prada,https://it.linkedin.com/in/martina-righeschi-4a07a4b,Milan/Paris,Mode Luxe,Modéré
 P3,INDÉPENDANT,Burberry,Recruitment Manager,Melody,Small,Recruitment Team Burberry,https://www.linkedin.com/in/melody-small-683a6a27b/,Londres/Paris,Mode & Accessoires,Modéré
 P3,ESSILORLUXOTTICA,Ray-Ban,HR Manager,Madan,Kapoor,HR Team Ray-Ban,https://in.linkedin.com/in/madan-kapoor-72a038297,Paris/Milan,Lunetterie Luxe,Modéré

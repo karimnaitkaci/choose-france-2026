@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Complet - Hermès DRH - LN Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: #f5f5f0;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .subheader {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #d4af37;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .mission {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 30px 0;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af37;
+            margin-top: 40px;
+        }
+
+        .subsection-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #d4af37;
+        }
+
+        /* Candidate Profile */
+        .candidate-profile {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fafafa;
+            border-left: 4px solid #d4af37;
+            page-break-inside: avoid;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .profile-info-section h3 {
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-info-section p {
+            font-size: 12px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .profile-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            color: #333;
+            font-size: 13px;
+        }
+
+        .score-badge {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Career Timeline */
+        .career-timeline {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            border-left: 2px solid #d4af37;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: "●";
+            position: absolute;
+            left: -6px;
+            color: #d4af37;
+            font-size: 16px;
+        }
+
+        .timeline-years {
+            font-size: 11px;
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-role {
+            font-size: 13px;
+            color: #333;
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+
+        /* Soft Skills Grid */
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .skill-card {
+            padding: 15px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-top: 3px solid #d4af37;
+        }
+
+        .skill-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .skill-score {
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .skill-score span {
+            font-size: 16px;
+            color: #999;
+        }
+
+        .skill-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Assessment */
+        .assessment-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f0;
+            border-left: 3px solid #d4af37;
+        }
+
+        .assessment-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .assessment-content {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .strength-item, .risk-item {
+            margin-bottom: 8px;
+            padding-left: 16px;
+        }
+
+        .strength-item:before {
+            content: "✓ ";
+            color: #2e7d32;
+            font-weight: bold;
+            margin-left: -16px;
+            margin-right: 8px;
+        }
+
+        .risk-item:before {
+            content: "⚠ ";
+            color: #c62828;
+            margin-left: -16px;
+            margin-right: 8px;
+        }
+
+        /* Recommendation Box */
+        .recommendation-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 2px;
+            page-break-inside: avoid;
+        }
+
+        .rec-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .rec-text {
+            font-size: 13px;
+            color: white;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .rec-highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 13px;
+        }
+
+        .comparison-table th {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .criterion {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #d4af37;
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .footer-brand {
+            color: #d4af37;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Title Page -->
+        <div class="header">
+            <div class="logo-text">RAPPORT COMPLET</div>
+            <div class="subheader">ANALYSE APPROFONDIE DES CANDIDATS</div>
+            <div class="tagline">HERMÈS INTERNATIONAL | DRH EMEA</div>
+        </div>
+
+        <div class="mission">Position Stratégique C-Level | Transformation & Heritage Management</div>
+
+        <div style="text-align: center; margin: 50px 0; font-size: 14px; color: #666; line-height: 2;">
+            <div style="margin-bottom: 20px;">Prepared by</div>
+            <div style="font-size: 18px; font-weight: bold; color: #1a1a1a; letter-spacing: 2px;">LEÏLA NAIT-KACI</div>
+            <div style="font-size: 12px; color: #d4af37; letter-spacing: 1px; text-transform: uppercase;">LN Advisory | Luxury Recruitment & Executive Search</div>
+            <div style="margin-top: 30px; font-size: 12px;">June 2026 | Confidential</div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 1 -->
+        <div class="candidate-profile">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 3px;">
+                        🥇 SANDRINE ARNOULD
+                    </div>
+                    <div style="font-size: 13px; color: #d4af37; text-transform: uppercase; letter-spacing: 1px;">
+                        Chief People Officer - Isabel Marant
+                    </div>
+                </div>
+                <span class="score-badge">8.5/10</span>
+            </div>
+
+            <div class="profile-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">48 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">22 ans HR & Talent</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Disponibilité</span>
+                    <span class="meta-value">45-60 jours</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-years">2018-2024 | 6 ans</div>
+                    <div class="timeline-role"><strong>Chief People Officer</strong> - Isabel Marant (Paris)<br>
+                    Led HR transformation for luxury fashion startup scaling to international brand. Created Talent Academy, managed 400+ team.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">2014-2018 | 4 ans</div>
+                    <div class="timeline-role"><strong>HR Director</strong> - Paule Ka (Paris)<br>
+                    Drove organizational restructuring and talent acquisition for heritage French brand. Managed senior leadership transitions.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">1999-2014 | 15 ans</div>
+                    <div class="timeline-role"><strong>HR Manager → HR Director</strong> - LVMH Group (Paris)<br>
+                    Dior, Corporate Headquarters. Built recruitment processes and led talent development across multiple brands.</div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Analyse Soft Skills</div>
+            <div class="soft-skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description">Transitioned successfully from hierarchical LVMH to entrepreneurial startup environment. Transparent in crisis management.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">8.5<span>/10</span></div>
+                    <div class="skill-description">Good emotional regulation and empathy. Risk: potential "over-empathy" in urgent strategic decisions requiring objectivity.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Created Isabel Marant Talent Academy. Anticipated designer shortage. Strong mid-term planning.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description">Multi-sector expertise: LVMH → Dior → Paule Ka → Isabel Marant. Multilingual, strong international network.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Highly effective in matrix environments. Strong stakeholder buy-in across design and operations teams.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Navigated 3 major organizational crises. Sees opportunities in adversity. Quick learner under pressure.</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">✓ Correspondance Hermès</div>
+                <div class="assessment-content">
+                    <strong>Évaluation: ⭐⭐⭐⭐⭐ EXCELLENTE</strong><br>
+                    Incarne parfaitement l'équilibre transformation/tradition requis par Hermès. Combine expertise pure luxe (LVMH) avec agilité entrepreneuriale (Isabel Marant).
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Atouts Majeurs</div>
+                <div class="assessment-content">
+                    <div class="strength-item">Expertise LVMH combinée à transformation startup</div>
+                    <div class="strength-item">Soft skills exceptionnels : Authentique (9/10), Agilité (9/10)</div>
+                    <div class="strength-item">Capacité à naviguer hiérarchie formelle ET culture créative</div>
+                    <div class="strength-item">Réseau international établi dans le luxe</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Risques Identifiés</div>
+                <div class="assessment-content">
+                    <div class="risk-item">Potentielle surempathie en décisions urgentes (score IE: 8.5/10, pas parfait)</div>
+                    <div class="risk-item">Peut chercher consensus excessif face à changements radicaux</div>
+                    <div class="risk-item">Score IE: 8.5/10 - légèrement en-dessous de la perfection requis pour top management Hermès</div>
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="rec-label">✓ Recommandation</div>
+                <div class="rec-text">
+                    <span class="rec-highlight">PRIORITÉ MAXIMALE</span> - Avancer immédiatement à entretien d'exploration. Profil idéal combinant expertise luxe et transformation. Probabilité succès: <span class="rec-highlight">85%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 2 -->
+        <div class="candidate-profile">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 3px;">
+                        🥈 FRANÇOIS DUBOIS
+                    </div>
+                    <div style="font-size: 13px; color: #d4af37; text-transform: uppercase; letter-spacing: 1px;">
+                        VP Human Resources - Roche Bobois
+                    </div>
+                </div>
+                <span class="score-badge">8.5/10</span>
+            </div>
+
+            <div class="profile-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">45 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">20 ans HR & Digital</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Disponibilité</span>
+                    <span class="meta-value">30-45 jours</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-years">2021-2024 | 3 ans</div>
+                    <div class="timeline-role"><strong>VP Human Resources</strong> - Roche Bobois (Paris)<br>
+                    Led digital transformation of HR operations. Managed 350+ team. Oversaw cultural integration post-merger.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">2016-2021 | 5 ans</div>
+                    <div class="timeline-role"><strong>HR Director</strong> - Furniture Group (European Operations)<br>
+                    Led multi-country talent acquisition and change management across 5 markets.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">2008-2016 | 8 ans</div>
+                    <div class="timeline-role"><strong>HR Manager → Talent Director</strong> - Fashion Retail Chain<br>
+                    Built recruitment infrastructure. Managed organizational restructuring during economic crisis.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">2004-2008 | 4 ans</div>
+                    <div class="timeline-role"><strong>HR Specialist</strong> - Hospitality Startup (Paris)<br>
+                    Early-stage HR team member. Survived near-bankruptcy 2015. Personal therapeutic journey developing emotional intelligence.</div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Analyse Soft Skills</div>
+            <div class="soft-skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">8.5<span>/10</span></div>
+                    <div class="skill-description">Coach & developer of leaders. Not charismatic but deeply respected. Authentic and transparent communication.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description"><strong>⭐ EXCEPTIONNELLE</strong> - Excellent group dynamics reading. Manages tensions well. Strong self-awareness.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Solid mid-term strategic thinking. Less developed on 10+ year vision required for luxury heritage brands.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description"><strong>⭐ EXCEPTIONNELLE</strong> - Multi-sector transitions proven: Fashion → Furniture → Retail → back to Furniture. Tested under crisis.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description"><strong>⭐ EXCEPTIONNELLE</strong> - Influence in multi-matrix contexts without formal power. Upward influence to C-suite demonstrated.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">9<span>/10</span></div>
+                    <div class="skill-description"><strong>⭐ EXCEPTIONNELLE</strong> - Survived startup near-bankruptcy 2015. Comfortable with ambiguity. "Fail fast learn faster" mindset.</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">✓ Correspondance Hermès</div>
+                <div class="assessment-content">
+                    <strong>Évaluation: ⭐⭐⭐⭐ EXCELLENTE POUR TRANSFORMATION</strong><br>
+                    Profil idéal pour transformation stratégique si Hermès cherche disruption. Soft skills supérieurs à Sandrine (moyenne 9.0 vs 8.5). Mais moins de connexion au univers pur luxe.
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Atouts Majeurs</div>
+                <div class="assessment-content">
+                    <div class="strength-item">Soft skills exceptionnels: IE (9/10), Agilité (9/10), Influence (9/10)</div>
+                    <div class="strength-item">Multi-secteur master: Mode → Furniture → Retail → Hospitality (preuve d'agilité)</div>
+                    <div class="strength-item">Transformation DNA: Leadership de changement culturel éprouvé dans 4 secteurs</div>
+                    <div class="strength-item">Résilience exceptionnelle testée en crise startup</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Risques Identifiés</div>
+                <div class="assessment-content">
+                    <div class="risk-item">Perçu comme "outsider" aux réseaux élites du luxe (apprentissage codes luxury requis)</div>
+                    <div class="risk-item">Vision stratégique plus court-terme (8/10) que long-terme Hermès traditionnelle</div>
+                    <div class="risk-item">Moins de connexion direct au univers pur luxe (mode/joaillerie)</div>
+                    <div class="risk-item">Mitigable via programme immersion heritage + mentoring 3 mois</div>
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="rec-label">✓ Recommandation</div>
+                <div class="rec-text">
+                    <span class="rec-highlight">ALTERNATIVE SOLIDE</span> - En cas de déclin Sandrine. Soft skills supérieurs mais apprentissage luxe requis. Probabilité succès: <span class="rec-highlight">75%</span> + immersion
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 3 -->
+        <div class="candidate-profile">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                <div>
+                    <div style="font-size: 20px; font-weight: bold; color: #1a1a1a; margin-bottom: 3px;">
+                        🥉 BÉATRICE LEFEVRE
+                    </div>
+                    <div style="font-size: 13px; color: #d4af37; text-transform: uppercase; letter-spacing: 1px;">
+                        HR Director - Givenchy (LVMH)
+                    </div>
+                </div>
+                <span class="score-badge">7.5/10</span>
+            </div>
+
+            <div class="profile-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">52 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">28 ans HR/Luxury</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Disponibilité</span>
+                    <span class="meta-value">60+ jours</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-years">2019-2024 | 5 ans</div>
+                    <div class="timeline-role"><strong>HR Director</strong> - Givenchy (Paris)<br>
+                    Led HR operations for heritage brand. Managed cultural preservation during leadership transitions. Team of 100+.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">2013-2019 | 6 ans</div>
+                    <div class="timeline-role"><strong>Senior HR Manager</strong> - Christian Dior (Paris)<br>
+                    Talent acquisition and organizational development for ultra-luxury brand. Worked with artisan heritage teams.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-years">1996-2013 | 17 ans</div>
+                    <div class="timeline-role"><strong>HR Specialist → HR Manager → HR Director</strong> - LVMH Corporate & Guerlain<br>
+                    Built recruitment processes across 12 brands. Expert in luxury artisan management.</div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Analyse Soft Skills</div>
+            <div class="soft-skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Guardian of heritage vs transformation agent. Stable leader but possibly too conservative for radical change.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">7<span>/10</span></div>
+                    <div class="skill-description">Good with artisans and heritage craftspeople. Less comfortable with rapid organizational change and disruption.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8<span>/10</span></div>
+                    <div class="skill-description">Excellent long-term vision for heritage preservation. Less strategic on disruption and digital transformation.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">6.5<span>/10</span></div>
+                    <div class="skill-description">LVMH-exclusive experience. Potential risk: "LVMH way = only way" mindset. Less comfort with non-LVMH environments.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">8.5<span>/10</span></div>
+                    <div class="skill-description">Excellent in LVMH matrix environments. Strong relationships with artisan teams. Less effective in "opposition" contexts.</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">7<span>/10</span></div>
+                    <div class="skill-description">Good survivor of crises, prefers consensus piloting vs rapid decision-making. Steady but not risk-taking.</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">✓ Correspondance Hermès</div>
+                <div class="assessment-content">
+                    <strong>Évaluation: ⭐⭐⭐ MODÉRÉE-BONNE</strong><br>
+                    Tradition très alignée mais risque de transition culturelle. Excellente pour maintenir status quo, moins adaptée pour transformation.
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Atouts Majeurs</div>
+                <div class="assessment-content">
+                    <div class="strength-item">Pure luxury expert: 28 ans LVMH (Guerlain, Dior, Givenchy)</div>
+                    <div class="strength-item">Heritage guardian: Excellence dans maintenance traditions et culture artisanale</div>
+                    <div class="strength-item">Expérience profonde des codes de luxe et craftsmanship</div>
+                    <div class="strength-item">Influence forte dans contextes LVMH établis</div>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-title">Risques Identifiés</div>
+                <div class="assessment-content">
+                    <div class="risk-item">LVMH-centric: Mentalité "LVMH way = only way" peut limiter vision Hermès indépendante</div>
+                    <div class="risk-item">Transformation limited: Peu de disruption testée (agilité: 6.5/10)</div>
+                    <div class="risk-item">Possible résistance aux changements rapides (préfère consensus progressif)</div>
+                    <div class="risk-item">Moins de capacité leadership transformatif/disruptif</div>
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="rec-label">⚠️ Statut: RÉSERVE UNIQUEMENT</div>
+                <div class="rec-text">
+                    À explorer en dernier recours ou si Hermès priorité = continuité LVMH. Excellente expérience luxe mais profil trop "LVMH-centric". Probabilité succès: <span class="rec-highlight">65%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- COMPARATIVE ANALYSIS -->
+        <div class="section-title">📊 Analyse Comparative - Synthèse Exécutive</div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    <th>Sandrine Arnould</th>
+                    <th>François Dubois</th>
+                    <th>Béatrice Lefevre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="criterion">Expertise Luxe</td>
+                    <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                </tr>
+                <tr>
+                    <td class="criterion">Capacité Transformation</td>
+                    <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐</span></td>
+                </tr>
+                <tr>
+                    <td class="criterion">Soft Skills (moyenne)</td>
+                    <td><strong>8.5/10</strong></td>
+                    <td><strong>9.0/10 ⭐</strong></td>
+                    <td><strong>7.6/10</strong></td>
+                </tr>
+                <tr>
+                    <td class="criterion">Fit Hermès Cultural</td>
+                    <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐⭐⭐</span></td>
+                    <td><span class="stars">⭐⭐⭐</span></td>
+                </tr>
+                <tr>
+                    <td class="criterion">Disponibilité</td>
+                    <td>45-60 jours</td>
+                    <td>30-45 jours</td>
+                    <td>60+ jours</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-title">✓ Recommandation Finale & Timeline</div>
+
+        <div class="recommendation-box" style="margin-bottom: 30px;">
+            <div class="rec-label">STRATÉGIE RECOMMANDÉE</div>
+            <div class="rec-text" style="margin-bottom: 15px;">
+                <span class="rec-highlight">VOIE PRIMAIRE:</span> Avancer Sandrine Arnould immédiatement à entretien d'exploration
+            </div>
+            <div class="rec-text" style="margin-bottom: 15px;">
+                <span class="rec-highlight">VOIE DE SECOURS:</span> François Dubois en parallèle léger (engagement réduit jusqu'à décision Sandrine)
+            </div>
+            <div class="rec-text">
+                <span class="rec-highlight">GARDER EN RÉSERVE:</span> Béatrice Lefevre pour backup tardif si deux premiers candidats déclinent
+            </div>
+        </div>
+
+        <div style="background: #f5f5f0; padding: 20px; border-left: 3px solid #d4af37; margin-bottom: 30px;">
+            <div style="font-size: 13px; font-weight: bold; color: #1a1a1a; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">
+                📅 Timeline Recommandé
+            </div>
+            <div style="font-size: 13px; color: #333; line-height: 1.8;">
+                <div><span style="color: #d4af37; font-weight: bold;">Semaine 1:</span> Prise de contact Sandrine + entretien exploration 90 min</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Semaine 2:</span> Assessment center (simulation de cas Hermès)</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Semaine 3:</span> Vérifications références + entretien François si nécessaire</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Semaine 4:</span> Finalisation + négociation contrat</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Septembre 2026:</span> Intégration Hermès</div>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); color: white; padding: 20px; border-radius: 2px;">
+            <div style="font-size: 13px; font-weight: bold; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                📈 Probabilité de Succès
+            </div>
+            <div style="font-size: 13px; color: white; line-height: 1.8;">
+                <div><span style="color: #d4af37; font-weight: bold;">Voie Sandrine:</span> <strong>85%</strong> - Expertise + agilité + luxury background</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Voie François:</span> <strong>75%</strong> - Soft skills supérieurs + 3 mois immersion required</div>
+                <div><span style="color: #d4af37; font-weight: bold;">Voie Béatrice:</span> <strong>65%</strong> - Pure expertise mais transformation limitée</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-brand">LN ADVISORY</div>
+            <div>Luxury Recruitment & Executive Search</div>
+            <div style="margin-top: 8px;">Confidentialité garantie | Respect RGPD | Discrétion Client</div>
+        </div>
+    </div>
+</body>
+</html>

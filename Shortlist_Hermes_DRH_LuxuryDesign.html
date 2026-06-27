@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlist - Hermès DRH - LN Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: #f5f5f0;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            page-break-after: always;
+        }
+
+        /* Header Luxury */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .subheader {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #d4af37;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .mission {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 16px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 30px 0;
+        }
+
+        /* Ranking Table */
+        .ranking-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .ranking-table th {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ranking-table td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .ranking-table tr:last-child td {
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .rank-1 { color: #d4af37; font-weight: bold; font-size: 16px; }
+        .rank-2 { color: #c0a060; font-weight: 600; }
+        .rank-3 { color: #999; font-weight: 600; }
+
+        .status-recommande {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .status-alternative {
+            background: #fff3e0;
+            color: #e65100;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .status-reserve {
+            background: #f3e5f5;
+            color: #6a1b9a;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* Candidate Cards */
+        .candidate-card {
+            margin-bottom: 35px;
+            border-left: 4px solid #d4af37;
+            padding: 25px;
+            background: #fafafa;
+            page-break-inside: avoid;
+        }
+
+        .candidate-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .candidate-title {
+            font-size: 12px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .candidate-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: #333;
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        .score-badge {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 8px 16px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .strengths, .risks {
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .strengths-title, .risks-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .strengths-title { color: #2e7d32; }
+        .risks-title { color: #c62828; }
+
+        .strength-item, .risk-item {
+            margin-bottom: 6px;
+            padding-left: 16px;
+            line-height: 1.5;
+        }
+
+        .strength-item:before {
+            content: "✓ ";
+            color: #2e7d32;
+            font-weight: bold;
+            margin-left: -16px;
+            margin-right: 8px;
+        }
+
+        .risk-item:before {
+            content: "⚠ ";
+            color: #c62828;
+            margin-left: -16px;
+            margin-right: 8px;
+        }
+
+        /* Decision Matrix */
+        .matrix-section {
+            margin-top: 40px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+
+        .comparison-table th {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .criterion {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        .score-number {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        /* Recommendation */
+        .recommendation {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 2px;
+            page-break-inside: avoid;
+        }
+
+        .rec-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .rec-item {
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .rec-highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 2px solid #d4af37;
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .footer-brand {
+            color: #d4af37;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-text">SHORTLIST</div>
+            <div class="subheader">PRÉ-QUALIFICATION CANDIDATS</div>
+            <div class="tagline">HERMÈS INTERNATIONAL | DRH EMEA</div>
+        </div>
+
+        <div class="mission">Position C-Level | Transformation & Heritage Management</div>
+
+        <div class="divider"></div>
+
+        <!-- Ranking Table -->
+        <div class="ranking-section">
+            <div class="section-title">📊 Classement Exécutif</div>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Candidat</th>
+                        <th>Score</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-1">🥇 #1</td>
+                        <td>Sandrine Arnould</td>
+                        <td><strong>8.5/10</strong></td>
+                        <td><span class="status-recommande">✓ RECOMMANDÉ</span></td>
+                        <td>Avancer immédiatement</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-2">🥈 #2</td>
+                        <td>François Dubois</td>
+                        <td><strong>8.5/10</strong></td>
+                        <td><span class="status-alternative">ALT. SOLIDE</span></td>
+                        <td>En parallèle léger</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-3">🥉 #3</td>
+                        <td>Béatrice Lefevre</td>
+                        <td><strong>7.5/10</strong></td>
+                        <td><span class="status-reserve">RÉSERVE</span></td>
+                        <td>Dernier recours</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Candidate 1 -->
+        <div class="candidate-card">
+            <div class="candidate-name">1. SANDRINE ARNOULD</div>
+            <div class="candidate-title">Chief People Officer - Isabel Marant</div>
+
+            <div class="candidate-info">
+                <div class="info-item">
+                    <span class="info-label">Âge</span>
+                    <span class="info-value">48 ans</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Expérience</span>
+                    <span class="info-value">22 ans HR/Talent</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Paris</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Disponibilité</span>
+                    <span class="info-value">45-60 jours</span>
+                </div>
+            </div>
+
+            <span class="score-badge">SCORE: 8.5/10</span>
+
+            <div class="strengths">
+                <div class="strengths-title">Points Forts</div>
+                <div class="strength-item">Legacy LVMH (15 ans) : Dior, Corporate, Paule Ka</div>
+                <div class="strength-item">Transformation proven : Isabel Marant (startup → international)</div>
+                <div class="strength-item">Soft skills exceptionnels : Authenticité (9/10), Agilité (9/10)</div>
+                <div class="strength-item">Fit parfait Hermès : Équilibre transformation/tradition</div>
+            </div>
+
+            <div class="risks">
+                <div class="risks-title">Risques</div>
+                <div class="risk-item">Potentielle surempathie en décisions urgentes</div>
+                <div class="risk-item">Peut chercher consensus excessif vs changements radicaux</div>
+            </div>
+        </div>
+
+        <!-- Candidate 2 -->
+        <div class="candidate-card">
+            <div class="candidate-name">2. FRANÇOIS DUBOIS</div>
+            <div class="candidate-title">VP HR - Roche Bobois</div>
+
+            <div class="candidate-info">
+                <div class="info-item">
+                    <span class="info-label">Âge</span>
+                    <span class="info-value">45 ans</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Expérience</span>
+                    <span class="info-value">20 ans HR/Digital</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Paris</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Disponibilité</span>
+                    <span class="info-value">30-45 jours</span>
+                </div>
+            </div>
+
+            <span class="score-badge">SCORE: 8.5/10</span>
+
+            <div class="strengths">
+                <div class="strengths-title">Points Forts</div>
+                <div class="strength-item">Soft skills exceptionnels : IE (9/10), Agilité (9/10), Influence (9/10)</div>
+                <div class="strength-item">Multi-secteur master : Mode → Furniture → Retail → Hospitality</div>
+                <div class="strength-item">Transformation DNA : Leadership de changement éprouvé</div>
+                <div class="strength-item">Leadership authentique et transparent</div>
+            </div>
+
+            <div class="risks">
+                <div class="risks-title">Risques</div>
+                <div class="risk-item">Perçu comme "outsider" aux réseaux élites luxe</div>
+                <div class="risk-item">Moins de connexion pur univers luxe (apprentissage requis)</div>
+                <div class="risk-item">Vision stratégique court-terme vs long-terme Hermès</div>
+            </div>
+        </div>
+
+        <!-- Candidate 3 -->
+        <div class="candidate-card">
+            <div class="candidate-name">3. BÉATRICE LEFEVRE</div>
+            <div class="candidate-title">HR Director - Givenchy (LVMH)</div>
+
+            <div class="candidate-info">
+                <div class="info-item">
+                    <span class="info-label">Âge</span>
+                    <span class="info-value">52 ans</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Expérience</span>
+                    <span class="info-value">28 ans HR/Luxury</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Paris</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Disponibilité</span>
+                    <span class="info-value">60+ jours</span>
+                </div>
+            </div>
+
+            <span class="score-badge">SCORE: 7.5/10</span>
+
+            <div class="strengths">
+                <div class="strengths-title">Points Forts</div>
+                <div class="strength-item">Pure luxury expert : 28 ans LVMH (Guerlain, Dior, Givenchy)</div>
+                <div class="strength-item">Heritage guardian : Excellence dans maintenance traditions</div>
+                <div class="strength-item">Expérience artisanale et culture de marque profonde</div>
+            </div>
+
+            <div class="risks">
+                <div class="risks-title">Risques</div>
+                <div class="risk-item">LVMH-centric : Risque mentalité "LVMH way = only way"</div>
+                <div class="risk-item">Transformation limited : Peu de disruption testée</div>
+                <div class="risk-item">Agilité culturelle limitée (6.5/10)</div>
+                <div class="risk-item">Réserve uniquement - à explorer en dernier recours</div>
+            </div>
+        </div>
+
+        <!-- Decision Matrix -->
+        <div class="matrix-section">
+            <div class="section-title">🎯 Matrice de Décision</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Critère</th>
+                        <th>Sandrine</th>
+                        <th>François</th>
+                        <th>Béatrice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="criterion">Expertise Luxe</td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td class="criterion">Transformation</td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td class="criterion">Soft Skills (moyenne)</td>
+                        <td><span class="score-number">8.5</span></td>
+                        <td><span class="score-number">9.0</span></td>
+                        <td><span class="score-number">7.6</span></td>
+                    </tr>
+                    <tr>
+                        <td class="criterion">Fit Hermès</td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐⭐⭐</span></td>
+                        <td><span class="stars">⭐⭐⭐</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Recommendation -->
+        <div class="recommendation">
+            <div class="rec-title">✓ Recommandation Finale</div>
+            <div class="rec-item">
+                <span class="rec-highlight">VOIE PRIMAIRE :</span> Avancer Sandrine Arnould immédiatement
+            </div>
+            <div class="rec-item">
+                <span class="rec-highlight">VOIE DE SECOURS :</span> François Dubois en parallèle léger
+            </div>
+            <div class="rec-item">
+                <span class="rec-highlight">RÉSERVE :</span> Béatrice Lefevre (backup tardif)
+            </div>
+            <div class="divider" style="margin: 15px 0; opacity: 0.3;"></div>
+            <div class="rec-item">
+                <span class="rec-highlight">PROBABILITÉ SUCCÈS :</span><br>
+                Sandrine: 85% | François: 75% | Béatrice: 65%
+            </div>
+            <div class="rec-item" style="margin-top: 15px; font-size: 12px;">
+                <span class="rec-highlight">TIMELINE :</span> Démarrage immédiat pour intégration septembre 2026
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-brand">LN ADVISORY</div>
+            <div>Luxury Recruitment & Executive Search</div>
+            <div style="margin-top: 8px;">Confidentialité garantie | Respect RGPD</div>
+        </div>
+    </div>
+</body>
+</html>

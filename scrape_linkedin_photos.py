@@ -96,8 +96,11 @@ def scrape_photos(contacts):
     print("🔐 Connexion à LinkedIn...\n")
 
     with sync_playwright() as p:
-        # Lancer le navigateur
-        browser = p.chromium.launch(headless=False)  # headless=False pour voir ce qui se passe
+        # Lancer le navigateur avec le chemin d'exécution pré-installé
+        browser = p.chromium.launch(
+            executable_path='/opt/pw-browsers/chromium',
+            headless=False
+        )
         context = browser.new_context()
         page = context.new_page()
 

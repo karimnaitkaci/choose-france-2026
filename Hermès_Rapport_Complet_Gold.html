@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Complet - Hermès DRH EMEA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: white;
+            color: #2a2a2a;
+            line-height: 1.7;
+            font-size: 11pt;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 70px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 50px;
+            padding: 35px;
+            border-top: 4px solid #d4af37;
+            border-bottom: 3px solid #b8860b;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            border-radius: 2px;
+        }
+
+        .firm-name {
+            font-family: 'Lora', serif;
+            font-size: 10pt;
+            font-weight: 500;
+            color: #b8860b;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Lora', serif;
+            font-size: 26pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 11pt;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        .meta-info {
+            font-size: 9.5pt;
+            color: #888;
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e8d7c3;
+        }
+
+        /* Content */
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            border-left: 4px solid #d4af37;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-content {
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .paragraph {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* Candidate */
+        .candidate-profile {
+            margin-bottom: 45px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #e8e8e8;
+            page-break-inside: avoid;
+        }
+
+        .candidate-header {
+            margin-bottom: 20px;
+        }
+
+        .candidate-name {
+            font-family: 'Lora', serif;
+            font-size: 14pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .candidate-position {
+            font-size: 10.5pt;
+            color: #b8860b;
+            font-weight: 500;
+        }
+
+        .candidate-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 10pt;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            color: #b8860b;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .meta-value {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        /* Career */
+        .subsection-title {
+            font-family: 'Lora', serif;
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            padding-left: 10px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .career-item {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 2px solid #e8d7c3;
+            font-size: 10.5pt;
+            line-height: 1.7;
+        }
+
+        .career-dates {
+            color: #b8860b;
+            font-size: 9.5pt;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .career-role {
+            color: #333;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            padding: 12px;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            border-left: 3px solid #d4af37;
+            border-radius: 2px;
+            font-size: 10pt;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 10pt;
+            margin-bottom: 4px;
+        }
+
+        .skill-score {
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 4px;
+            font-size: 11pt;
+        }
+
+        .skill-note {
+            color: #666;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+
+        /* Assessment */
+        .assessment {
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            padding: 15px;
+            border-left: 3px solid #d4af37;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            font-size: 10.5pt;
+            line-height: 1.7;
+            border-radius: 2px;
+        }
+
+        .assessment-title {
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 6px;
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .assessment-content {
+            color: #444;
+        }
+
+        .assessment-content ul {
+            margin-top: 6px;
+            margin-left: 15px;
+            list-style: none;
+        }
+
+        .assessment-content li {
+            margin-bottom: 4px;
+            color: #555;
+            font-size: 10pt;
+        }
+
+        .assessment-content li:before {
+            content: "•  ";
+            margin-right: 6px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Recommendation */
+        .recommendation {
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            border-left: 4px solid #d4af37;
+            padding: 18px;
+            margin-top: 20px;
+            font-size: 10.5pt;
+            line-height: 1.7;
+            border-radius: 2px;
+        }
+
+        .rec-title {
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 10pt;
+            letter-spacing: 0.5px;
+        }
+
+        .rec-content {
+            color: #444;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10.5pt;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede5d9 100%);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #d4af37;
+            color: #1a1a1a;
+            font-size: 10pt;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: 2px solid #d4af37;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #d4af37;
+            font-size: 9pt;
+            color: #888;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .confidential {
+            font-size: 9pt;
+            color: #b8860b;
+            text-align: right;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+        }
+
+        @media print {
+            body { background: white; }
+            .container { max-width: 100%; padding: 50px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confidential">CONFIDENTIEL</div>
+
+        <div class="header">
+            <div class="firm-name">LN Advisory – Recrutement Luxe & Executive Search</div>
+            <div class="title">Hermès International<br>Directeur des Ressources Humaines – EMEA</div>
+            <div class="subtitle">Rapport complet d'analyse comparative des candidats</div>
+            <div class="meta-info">
+                <span>Juin 2026</span>
+                <span>Par Leïla Nait-Kaci</span>
+                <span>Confidentiel</span>
+            </div>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="section">
+            <div class="section-title">Contexte & Enjeux</div>
+            <div class="section-content">
+                <div class="paragraph">
+                    Hermès International, maison de luxe de patrimoine français, procède au renouvellement de sa direction des ressources humaines pour la région EMEA. Le poste de Directeur des Ressources Humaines EMEA est une position stratégique de niveau C, supervisée directement par le Directeur Général Opérations. Ses responsabilités englobent l'ensemble des opérations RH sur une région couvrant plus de 6 000 collaborateurs répartis sur 25 pays.
+                </div>
+                <div class="paragraph">
+                    Hermès se trouve à un moment charnière : croissance interne continue, expansion de nouvelles boutiques, transformation digitale des métiers, évolution des attentes des nouveaux talents. La maison souhaite un leader capable de maintenir sa culture patrimoniale unique tout en pilotant les transformations organisationnelles nécessaires.
+                </div>
+                <div class="paragraph">
+                    Notre recherche a produit un panel restreint de trois candidats français de haut niveau, tous actuellement en poste à titre de Directeur Général ou responsable C-Level en entreprises du secteur luxe et design.
+                </div>
+            </div>
+        </div>
+
+        <!-- SUMMARY TABLE -->
+        <div class="section">
+            <div class="section-title">Synthèse Comparative</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Candidat</th>
+                        <th>Position Actuelle</th>
+                        <th>Âge</th>
+                        <th>Score</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sandrine Arnould</strong></td>
+                        <td>Chief People Officer – Isabel Marant</td>
+                        <td>48</td>
+                        <td><span style="color: #d4af37; font-weight: 600;">8,5/10</span></td>
+                        <td><strong style="color: #b8860b;">RECOMMANDÉ</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>François Dubois</strong></td>
+                        <td>VP Human Resources – Roche Bobois</td>
+                        <td>45</td>
+                        <td><span style="color: #d4af37; font-weight: 600;">8,5/10</span></td>
+                        <td>Alternative solide</td>
+                    </tr>
+                    <tr>
+                        <td>Béatrice Lefevre</td>
+                        <td>HR Director – Givenchy (LVMH)</td>
+                        <td>52</td>
+                        <td>7,5/10</td>
+                        <td>Réserve</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 1 -->
+        <div class="candidate-profile">
+            <div class="candidate-header">
+                <div class="candidate-name">Sandrine Arnould</div>
+                <div class="candidate-position">Chief People Officer — Isabel Marant</div>
+            </div>
+
+            <div class="candidate-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">48 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">22 ans HR/Talent</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Score Global</span>
+                    <span class="meta-value" style="color: #d4af37; font-weight: bold;">8,5/10</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-item">
+                <div class="career-dates">2018-2024 | 6 années</div>
+                <div class="career-role"><strong>Chief People Officer</strong> — Isabel Marant (Paris). Pilotage de la transformation RH d'une marque de mode française en pleine croissance internationale. Professionnal isation de la structure RH, mise en place d'une Talent Academy, passage de 200 à 400+ collaborateurs. Gestion des crises liées à l'intégration rapide de nouveaux marchés (Japon, Asie du Sud-Est, États-Unis).</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">2014-2018 | 4 années</div>
+                <div class="career-role"><strong>HR Director</strong> — Paule Ka (Paris). Restructuration organisationnelle complète. Acquisition stratégique de talents créatifs et administratifs. Gestion des transitions de gouvernance lors du changement d'équipe dirigeante.</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">1999-2014 | 15 années</div>
+                <div class="career-role"><strong>HR Manager, Senior HR Manager, HR Director</strong> — LVMH Group (Paris, Dior & Corporate HQ). Construction des cadres de recrutement multi-marques. Implication dans les fusions-acquisitions. Apprentissage des codes du groupe LVMH et de la culture patrimoniale du luxe français.</div>
+            </div>
+
+            <div class="subsection-title">Analyse par Dimension</div>
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Transition réussie de leader hiérarchique LVMH à leader entrepreneurial chez Isabel Marant. Reconnaissance pour transparence et intégrité.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">8,5/10</div>
+                    <div class="skill-note">Très solide. Empathique. Légère tendance à privilégier le consensus, ce qui peut ralentir décisions en urgence.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Vision moyen-terme claire. A créé une académie de talents. Vision long-terme (10+ ans) moins affinée.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Transitions multiples réussies (LVMH → Dior → Paule Ka → Isabel Marant). Multilingue. Réseau international établi.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Très efficace en environnements matriciels. Stakeholder buy-in fort de la part des équipes design et opérations.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Navigué trois crises organisationnelles majeures. Voit les opportunités dans l'adversité.</div>
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">✓ Évaluation Globale</div>
+                <div class="assessment-content">
+                    Sandrine incarne l'équilibre rare que recherche Hermès. Elle combine expertise LVMH approfondie (15 années) avec capacité démontrée de transformation dans un environnement startup de luxe (6 années). Elle a appris à naviguer entre hiérarchie formelle et culture créative entrepreneuriale. C'est un atout décisif pour une maison patrimoniale en transformation.
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">Forces Principales</div>
+                <div class="assessment-content">
+                    <ul>
+                        <li>Combinaison rare d'expertise LVMH + transformation startup</li>
+                        <li>Leadership authentique et transparent reconnu par les équipes</li>
+                        <li>Agilité culturelle exceptionnelle (9/10)</li>
+                        <li>Réseau établi dans l'écosystème luxe français</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <div class="rec-title">✓ Recommandation</div>
+                <div class="rec-content">
+                    <strong>Statut : RECOMMANDÉ – À ENGAGER EN PRIORITÉ</strong><br><br>
+                    Sandrine présente le profil le plus complet. Probabilité de succès : <span style="color: #d4af37; font-weight: 600;">85%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 2 -->
+        <div class="candidate-profile">
+            <div class="candidate-header">
+                <div class="candidate-name">François Dubois</div>
+                <div class="candidate-position">VP Human Resources — Roche Bobois</div>
+            </div>
+
+            <div class="candidate-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">45 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">20 ans HR/Digital</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Score Global</span>
+                    <span class="meta-value" style="color: #d4af37; font-weight: bold;">8,5/10</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-item">
+                <div class="career-dates">2021-2024 | 3 années</div>
+                <div class="career-role"><strong>VP Human Resources</strong> — Roche Bobois (Paris). Transformation digitale des opérations RH. Gestion de 350+ collaborateurs. Intégration culturelle post-fusion.</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">2016-2021 | 5 années</div>
+                <div class="career-role"><strong>HR Director</strong> — Furniture Group (Opérations Européennes). Acquisition de talents multi-pays. Pilotage du change management dans 5 marchés différents.</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">2008-2016 | 8 années</div>
+                <div class="career-role"><strong>HR Manager, Senior HR Manager, Talent Director</strong> — Fashion Retail Chain (France, International). Construction de l'infrastructure RH de zéro. Passage de 50 à 800+ collaborateurs.</div>
+            </div>
+
+            <div class="subsection-title">Analyse par Dimension</div>
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">8,5/10</div>
+                    <div class="skill-note">Coach et développeur de leaders reconnu. Non-charismatique mais profondément respecté.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Exceptionnelle. Lecture excellente des dynamiques de groupe. Autoconscience remarquablement haute.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Pensée stratégique moyen-terme très solide. Vision long-terme (10+ ans) moins développée.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Transitions multi-sectorielles réussies (Mode → Furniture → Retail). Testée en crise.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Exceptionnelle. Upward influence auprès de C-suite démontrée.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">9/10</div>
+                    <div class="skill-note">Exceptionnelle. Crise-tested. Mindset « fail fast, learn faster ».</div>
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">✓ Évaluation Globale</div>
+                <div class="assessment-content">
+                    François affiche des soft skills exceptionnels (moyenne 9,0/10), supérieurs même à Sandrine (8,5/10). Ses capacités en intelligence émotionnelle, agilité culturelle et résilience sont remarquablement élevées. Cependant, son expertise du secteur luxe est moins concentrée.
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">Forces Principales</div>
+                <div class="assessment-content">
+                    <ul>
+                        <li>Soft skills exceptionnels (IE 9/10, Agilité 9/10, Influence 9/10)</li>
+                        <li>Adaptabilité multi-secteur et multi-pays démontrée</li>
+                        <li>Transformation disruptive éprouvée en 4 secteurs différents</li>
+                        <li>Capacité leadership en crise et ambiguïté extrêmes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <div class="rec-title">🥈 Recommandation</div>
+                <div class="rec-content">
+                    <strong>Statut : ALTERNATIVE SOLIDE – À ENGAGER EN PARALLÈLE LÉGER</strong><br><br>
+                    Alternative très robuste si Sandrine refuse. Soft skills objectivement supérieurs. Nécessite programme immersion patrimoine (3 mois). Probabilité de succès : <span style="color: #d4af37; font-weight: 600;">75%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CANDIDATE 3 -->
+        <div class="candidate-profile">
+            <div class="candidate-header">
+                <div class="candidate-name">Béatrice Lefevre</div>
+                <div class="candidate-position">HR Director — Givenchy (LVMH)</div>
+            </div>
+
+            <div class="candidate-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Âge</span>
+                    <span class="meta-value">52 ans</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Expérience Totale</span>
+                    <span class="meta-value">28 ans HR/Luxury</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Localisation</span>
+                    <span class="meta-value">Paris</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Score Global</span>
+                    <span class="meta-value" style="color: #999;">7,5/10</span>
+                </div>
+            </div>
+
+            <div class="subsection-title">Parcours Professionnel</div>
+            <div class="career-item">
+                <div class="career-dates">2019-2024 | 5 années</div>
+                <div class="career-role"><strong>HR Director</strong> — Givenchy (Paris). Opérations RH complet pour maison de luxe patrimoine. Gestion de préservation culturelle lors transitions de leadership.</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">2013-2019 | 6 années</div>
+                <div class="career-role"><strong>Senior HR Manager</strong> — Christian Dior (Paris). Acquisition stratégique de talents créatifs. Développement organisationnel pour maison ultra-luxe.</div>
+            </div>
+            <div class="career-item">
+                <div class="career-dates">1996-2013 | 17 années</div>
+                <div class="career-role"><strong>HR Specialist, HR Manager, HR Director</strong> — LVMH Group (Paris, Guerlain & Corporate). Expertise développée sur codes culture LVMH.</div>
+            </div>
+
+            <div class="subsection-title">Analyse par Dimension</div>
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-name">Leadership Authentique</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Gardienne du patrimoine. Leader stable, possibly conservative. Respect établi.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Intelligence Émotionnelle</div>
+                    <div class="skill-score">7/10</div>
+                    <div class="skill-note">Bonne avec artisans. Moins comfortable avec changements organisationnels rapides.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Vision Stratégique</div>
+                    <div class="skill-score">8/10</div>
+                    <div class="skill-note">Excellente vision long-terme pour préservation héritage. Moins sur disruption/digital.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Agilité Culturelle</div>
+                    <div class="skill-score">6,5/10</div>
+                    <div class="skill-note">Expérience exclusive LVMH (28 années). Risque mentalité « LVMH way = only way ».</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Influence sans Autorité</div>
+                    <div class="skill-score">8,5/10</div>
+                    <div class="skill-note">Excellente en contextes LVMH matrix établis. Forte relation équipes artisanales.</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Résilience</div>
+                    <div class="skill-score">7/10</div>
+                    <div class="skill-note">Bonne survivante crises. Préfère pilotages progressifs vs changement rapide.</div>
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">⚠️ Évaluation Globale</div>
+                <div class="assessment-content">
+                    Béatrice représente expertise luxe patrimoniale exceptionnelle (28 années, immersion LVMH complète). Cependant, son profil présente des limitations significatives. Son agilité culturelle (6,5/10) est le point faible. Elle risque d'apporter une mentalité « groupe » plutôt qu'une pensée indépendante Hermès.
+                </div>
+            </div>
+
+            <div class="assessment">
+                <div class="assessment-title">Domaines de Vigilance</div>
+                <div class="assessment-content">
+                    <ul>
+                        <li>LVMH-centricity: risque majeur de mentalité « LVMH way = only way »</li>
+                        <li>Capacité transformation limitée: peu d'expérience disruption</li>
+                        <li>Agilité culturelle faible (6,5/10): exposition réduite autres modèles</li>
+                        <li>Résilience modérée en crise: préfère continuité progressive</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <div class="rec-title">⚠️ Recommandation</div>
+                <div class="rec-content">
+                    <strong>Statut : RÉSERVE TARDIVE – DERNIER RECOURS UNIQUEMENT</strong><br><br>
+                    À conserver en réserve. Ne pas engager directement. Expertise luxe exceptionnelle mais manque de mentalité indépendante Hermès. Probabilité de succès : <span style="color: #d4af37; font-weight: 600;">65%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- FINAL RECOMMENDATION -->
+        <div class="section">
+            <div class="section-title">Recommandation Finale</div>
+
+            <div class="paragraph">
+                <strong>Stratégie Finale :</strong>
+            </div>
+
+            <div class="paragraph">
+                <strong style="color: #b8860b;">1. Voie Primaire :</strong> Engager Sandrine Arnould immédiatement. Probabilité succès <span style="color: #d4af37; font-weight: 600;">85%</span>
+            </div>
+
+            <div class="paragraph">
+                <strong style="color: #b8860b;">2. Voie Secondaire :</strong> François Dubois en parallèle « keep warm ». Probabilité succès <span style="color: #d4af37; font-weight: 600;">75%</span> + programme immersion
+            </div>
+
+            <div class="paragraph">
+                <strong style="color: #b8860b;">3. Réserve :</strong> Béatrice Lefevre, dernier recours uniquement. Probabilité succès <span style="color: #d4af37; font-weight: 600;">65%</span>
+            </div>
+
+            <div class="paragraph">
+                <strong style="color: #b8860b;">Timeline :</strong> Semaine 1 prise de contact Sandrine. Semaines 2-3 assessment + références. Semaine 4 négociation contrat. Intégration septembre 2026.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Ce rapport est établi dans le contexte d'une mission de recrutement hautement confidentielle.</p>
+            <p style="margin-top: 10px;">LN Advisory — Recrutement Luxe & Executive Search | Paris | Juin 2026</p>
+        </div>
+    </div>
+</body>
+</html>

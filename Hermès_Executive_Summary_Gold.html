@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Summary - Hermès DRH EMEA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: white;
+            color: #2a2a2a;
+            line-height: 1.7;
+            font-size: 11pt;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 70px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 50px;
+            padding: 35px;
+            border-top: 4px solid #d4af37;
+            border-bottom: 3px solid #b8860b;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            border-radius: 2px;
+        }
+
+        .firm-name {
+            font-family: 'Lora', serif;
+            font-size: 10pt;
+            font-weight: 500;
+            color: #b8860b;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Lora', serif;
+            font-size: 26pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 11pt;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        .meta-info {
+            font-size: 9.5pt;
+            color: #888;
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e8d7c3;
+        }
+
+        /* Main content */
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            border-left: 4px solid #d4af37;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-content {
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .paragraph {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* Candidate summary cards */
+        .candidate-summary {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #fafafa;
+            border-left: 4px solid #d4af37;
+            border-radius: 2px;
+            page-break-inside: avoid;
+        }
+
+        .candidate-name {
+            font-family: 'Lora', serif;
+            font-size: 12pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .candidate-position {
+            font-size: 10pt;
+            color: #b8860b;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .candidate-score {
+            font-size: 10pt;
+            margin-bottom: 12px;
+        }
+
+        .score-label {
+            color: #888;
+            margin-right: 8px;
+        }
+
+        .score-value {
+            font-weight: 600;
+            color: #d4af37;
+            font-size: 11pt;
+        }
+
+        .candidate-text {
+            font-size: 10.5pt;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* Ranking table */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10.5pt;
+        }
+
+        .ranking-table th {
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede5d9 100%);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #d4af37;
+            color: #1a1a1a;
+        }
+
+        .ranking-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .ranking-table tr:last-child td {
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .rank-num {
+            font-weight: 600;
+            width: 30px;
+            color: #d4af37;
+        }
+
+        /* Badges */
+        .status-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #b8860b 0%, #8b6f47 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-secondary {
+            display: inline-block;
+            background: #e8d7c3;
+            color: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-tertiary {
+            display: inline-block;
+            background: #f5f5f5;
+            color: #999;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Call-out box */
+        .callout {
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            margin: 25px 0;
+            font-size: 10.5pt;
+            line-height: 1.7;
+            border-radius: 2px;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 10pt;
+            color: #b8860b;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #d4af37;
+            font-size: 9pt;
+            color: #888;
+            text-align: center;
+        }
+
+        .confidential {
+            font-size: 9pt;
+            color: #b8860b;
+            text-align: right;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confidential">CONFIDENTIEL</div>
+
+        <div class="header">
+            <div class="firm-name">LN Advisory – Recrutement Luxe & Executive Search</div>
+            <div class="title">Hermès International<br>Directeur des Ressources Humaines – EMEA</div>
+            <div class="subtitle">Analyse comparative des candidats – Recommandation pour recrutement</div>
+            <div class="meta-info">
+                <span>Juin 2026</span>
+                <span>Par Leïla Nait-Kaci</span>
+                <span>Confidentiel</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Synthèse Exécutive</div>
+            <div class="section-content">
+                <div class="paragraph">
+                    Hermès International recherche un Directeur des Ressources Humaines pour superviser l'ensemble des opérations RH à l'échelle EMEA. Il s'agit d'une position stratégique C-Level qui demande une combinaison rare de compétences : expertise profonde du secteur luxe, leadership de transformation organisationnelle, et capacité à préserver le patrimoine culturel de la maison.
+                </div>
+                <div class="paragraph">
+                    Nous avons procédé à une analyse approfondie de trois candidats français de haut niveau, tous actuellement en poste à des niveaux de direction générale dans le luxe ou le design. Notre analyse privilégie six dimensions critiques de leadership susceptibles de déterminer le succès dans ce rôle.
+                </div>
+                <div class="paragraph">
+                    Nos résultats pointent clairement vers un classement. Deux candidats présentent des profils compétitifs (score 8,5/10), mais seul l'un d'entre eux dispose de la combinaison équilibrée d'expertise et de capacités de transformation.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Classement & Recommandation</div>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Candidat</th>
+                        <th>Position Actuelle</th>
+                        <th>Score</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-num">1</td>
+                        <td><strong>Sandrine Arnould</strong></td>
+                        <td>Chief People Officer, Isabel Marant</td>
+                        <td><strong>8,5/10</strong></td>
+                        <td><span class="status-primary">Recommandé</span></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-num">2</td>
+                        <td><strong>François Dubois</strong></td>
+                        <td>VP Human Resources, Roche Bobois</td>
+                        <td><strong>8,5/10</strong></td>
+                        <td><span class="status-secondary">Alternative</span></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-num">3</td>
+                        <td>Béatrice Lefevre</td>
+                        <td>HR Director, Givenchy (LVMH)</td>
+                        <td>7,5/10</td>
+                        <td><span class="status-tertiary">Réserve</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">✓ Recommandation Stratégique</div>
+                <p>Nous recommandons de procéder immédiatement à l'engagement de Sandrine Arnould. Son parcours combine expertise LVMH (15 années) et transformation startup réussie (Isabel Marant, 6 années). Elle incarne l'équilibre que Hermès recherche : respect du patrimoine culturel et agilité organisationnelle.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Profils Détaillés</div>
+
+            <div class="candidate-summary">
+                <div class="candidate-name">Sandrine Arnould</div>
+                <div class="candidate-position">Chief People Officer — Isabel Marant | 48 ans | Paris</div>
+                <div class="candidate-score"><span class="score-label">Score:</span><span class="score-value">8,5/10</span></div>
+                <div class="candidate-text">
+                    <p style="margin-bottom: 10px;">Sandrine apporte 22 années d'expérience en talent management et resources humaines, acquises principalement dans le secteur du luxe. Son parcours offre une progressivité remarquable : 15 années au sein du groupe LVMH (Dior, Corporate HQ, Paule Ka) lui confèrent une compréhension profonde des codes du luxe français et de la culture maison. Six années récentes chez Isabel Marant constituent un point de bascule décisif : elle a piloté la transformation des ressources humaines d'une startup de luxe vers une entreprise internationale.</p>
+                    <p><strong>Points forts :</strong> Leadership authentique (9/10) — démontre une capacité à naviguer entre structures hiérarchiques formelles et environnements créatifs. Agilité culturelle (9/10) — multilingue, réseau international établi. Fit parfait Hermès.</p>
+                </div>
+            </div>
+
+            <div class="candidate-summary">
+                <div class="candidate-name">François Dubois</div>
+                <div class="candidate-position">VP Human Resources — Roche Bobois | 45 ans | Paris</div>
+                <div class="candidate-score"><span class="score-label">Score:</span><span class="score-value">8,5/10</span></div>
+                <div class="candidate-text">
+                    <p style="margin-bottom: 10px;">François possède 20 années d'expérience RH, caractérisées par une forte diversité sectorielle : mode, meubles, retail, hospitality. Son intelligence émotionnelle (9/10) et son agilité culturelle (9/10) sont remarquablement élevées. Il a survécu à une quasi-faillite startup en 2015, ce qui a renforcé sa résilience (9/10).</p>
+                    <p><strong>Points forts :</strong> Soft skills exceptionnels. Capacité de transformation éprouvée en quatre secteurs différents. Leadership respecté. Considération : son expertise luxe est moins concentrée que Sandrine. Un programme d'immersion patrimoine (3 mois) serait recommandé.</p>
+                </div>
+            </div>
+
+            <div class="candidate-summary">
+                <div class="candidate-name">Béatrice Lefevre</div>
+                <div class="candidate-position">HR Director — Givenchy (LVMH) | 52 ans | Paris</div>
+                <div class="candidate-score"><span class="score-label">Score:</span><span class="score-value">7,5/10</span></div>
+                <div class="candidate-text">
+                    <p style="margin-bottom: 10px;">Béatrice représente une expertise luxe exceptionnelle : 28 années dans l'univers du luxe (LVMH, Guerlain, Dior, Givenchy). Elle est une gardienne du patrimoine et de la culture artisanale. Son leadership authentique (8/10) est solide.</p>
+                    <p><strong>Préoccupations :</strong> Son agilité culturelle (6,5/10) révèle une expérience exclusive LVMH, avec un risque de mentalité « la seule voie est celle de LVMH ». Capacité en transformation limitée. Réserve uniquement.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Plan de Mise en Œuvre</div>
+            <div class="section-content">
+                <div class="paragraph">
+                    <strong>Semaine 1:</strong> Prise de contact discrète auprès de Sandrine. Entretien exploration 90 min pour confirmer l'intérêt et la disponibilité.
+                </div>
+                <div class="paragraph">
+                    <strong>Semaines 2-3:</strong> Assessment center interne. Prise de références auprès de CEO Isabel Marant et Paule Ka. En parallèle, engager François Dubois en parallèle léger (« keep warm »).
+                </div>
+                <div class="paragraph">
+                    <strong>Semaines 3-4:</strong> Négociation contrat, définition onboarding. Démarrage prévu septembre 2026.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Probabilités de Succès</div>
+            <div class="section-content">
+                <div class="paragraph">
+                    <strong>Voie Sandrine Arnould :</strong> <span style="color: #d4af37; font-weight: 600;">85%</span> — Elle dispose d'expertise luxe, de capacité de transformation éprouvée, et d'un profil culturellement compatible.
+                </div>
+                <div class="paragraph">
+                    <strong>Voie François Dubois :</strong> <span style="color: #d4af37; font-weight: 600;">75%</span> — Soft skills exceptionnels mais lacune en expertise luxe nécessitant immersion. À considérer si Sandrine refuse.
+                </div>
+                <div class="paragraph">
+                    <strong>Voie Béatrice Lefevre :</strong> <span style="color: #d4af37; font-weight: 600;">65%</span> — Expertise luxe mais limitation en agilité et transformation. Réserve tardive.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Ce document est établi dans le cadre d'une mission de recrutement confidentielle.</p>
+            <p style="margin-top: 10px;">LN Advisory — Recrutement Luxe & Executive Search | Paris | Juin 2026</p>
+        </div>
+    </div>
+</body>
+</html>

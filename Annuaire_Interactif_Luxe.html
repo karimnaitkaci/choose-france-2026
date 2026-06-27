@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annuaire Interactif - Base Recrutement Luxe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Roboto:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f8f6f1 0%, #faf9f7 100%);
+            color: #2a2a2a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            color: white;
+            border-bottom: 3px solid #d4af37;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-title {
+            font-family: 'Lora', serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: #d4af37;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #ccc;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .stat-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .stat-number {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            padding: 30px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .filter-title {
+            font-family: 'Lora', serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 2px rgba(212,175,55,0.1);
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-item input {
+            margin-right: 8px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: #d4af37;
+        }
+
+        .checkbox-item label {
+            font-size: 13px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .checkbox-item label:hover {
+            color: #d4af37;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tree-container {
+            font-size: 13px;
+        }
+
+        .tree-group {
+            margin-bottom: 20px;
+        }
+
+        .group-toggle {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede5d9 100%);
+            border-left: 4px solid #d4af37;
+            cursor: pointer;
+            border-radius: 4px;
+            user-select: none;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: all 0.2s;
+        }
+
+        .group-toggle:hover {
+            background: linear-gradient(135deg, #ede5d9 0%, #e8d7c3 100%);
+        }
+
+        .group-toggle .arrow {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 12px;
+            transition: transform 0.2s;
+            color: #b8860b;
+        }
+
+        .group-toggle.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .group-count {
+            margin-left: auto;
+            font-size: 11px;
+            color: #b8860b;
+            background: rgba(212,175,55,0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .group-content {
+            max-height: 10000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .group-content.collapsed {
+            max-height: 0;
+        }
+
+        .brand-container {
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .brand-toggle {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            background: #fafafa;
+            border-left: 3px solid #e8d7c3;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 3px;
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: all 0.2s;
+            font-size: 12px;
+        }
+
+        .brand-toggle:hover {
+            background: #f0f0f0;
+            border-left-color: #d4af37;
+        }
+
+        .brand-toggle .arrow {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 11px;
+            transition: transform 0.2s;
+        }
+
+        .brand-toggle.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .brand-count {
+            margin-left: auto;
+            font-size: 10px;
+            color: #888;
+        }
+
+        .contacts-list {
+            max-height: 10000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .contacts-list.collapsed {
+            max-height: 0;
+        }
+
+        .contact-item {
+            margin-left: 35px;
+            padding: 12px;
+            background: white;
+            border-left: 2px solid #f0f0f0;
+            margin-top: 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            line-height: 1.6;
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            background: #fafafa;
+            border-left-color: #d4af37;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .contact-role {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .priority-p1 {
+            background: linear-gradient(135deg, #b8860b 0%, #8b6f47 100%);
+            color: white;
+        }
+
+        .priority-p2 {
+            background: #e8d7c3;
+            color: #1a1a1a;
+        }
+
+        .priority-p3 {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .linkedin-link {
+            color: #0a66c2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .linkedin-link:hover {
+            text-decoration: underline;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 30px;
+            color: #999;
+        }
+
+        .empty-state-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .container { grid-template-columns: 1fr; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">Annuaire Recrutement Luxe</div>
+        <div class="header-subtitle">Base Interactive de Contacts</div>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="total-contacts">302</span>
+                <span>Contacts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="total-groups">11</span>
+                <span>Groupes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="total-brands">200+</span>
+                <span>Marques</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <input type="text" class="search-box" id="search-input" placeholder="🔍 Chercher un contact, marque...">
+
+            <div class="filter-group">
+                <div class="filter-label">Priorité</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-p1" value="P1" checked>
+                    <label for="filter-p1">P1 - Stratégique</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-p2" value="P2" checked>
+                    <label for="filter-p2">P2 - Secondaire</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="filter-p3" value="P3" checked>
+                    <label for="filter-p3">P3 - Tertaire</label>
+                </div>
+            </div>
+
+            <button onclick="expandAll()" style="width: 100%; padding: 10px; background: #d4af37; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; color: #1a1a1a; margin-bottom: 10px;">
+                ⬇️ Développer tous
+            </button>
+            <button onclick="collapseAll()" style="width: 100%; padding: 10px; background: #e8e8e8; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; color: #1a1a1a;">
+                ⬆️ Replier tous
+            </button>
+        </div>
+
+        <div class="main-content">
+            <div class="tree-container" id="tree-container">
+                <!-- Arborescence générée par JavaScript -->
+            </div>
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-state-title">Aucun résultat</div>
+                <p>Aucun contact ne correspond à vos critères de recherche.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="contacts_data.js"></script>
+    <script>
+        let allContacts = [];
+        let filteredContacts = [];
+
+        // Initialisation - charge les données réelles
+        function loadData() {
+            allContacts = contactsData || [];
+            console.log(`Chargé ${allContacts.length} contacts`);
+            render();
+        }
+
+        function filter() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const filterP1 = document.getElementById('filter-p1').checked;
+            const filterP2 = document.getElementById('filter-p2').checked;
+            const filterP3 = document.getElementById('filter-p3').checked;
+
+            filteredContacts = allContacts.filter(contact => {
+                const matchSearch = !searchTerm ||
+                    contact.Prénom.toLowerCase().includes(searchTerm) ||
+                    contact.Nom.toLowerCase().includes(searchTerm) ||
+                    contact.Marque.toLowerCase().includes(searchTerm) ||
+                    contact["Poste Exact"].toLowerCase().includes(searchTerm);
+
+                const matchPriority =
+                    (filterP1 && contact.Priorité === "P1") ||
+                    (filterP2 && contact.Priorité === "P2") ||
+                    (filterP3 && contact.Priorité === "P3");
+
+                return matchSearch && matchPriority;
+            });
+
+            render();
+        }
+
+        function render() {
+            const container = document.getElementById('tree-container');
+            const emptyState = document.getElementById('empty-state');
+
+            if (filteredContacts.length === 0) {
+                container.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            // Grouper par Groupe puis par Marque
+            const grouped = {};
+            filteredContacts.forEach(contact => {
+                if (!grouped[contact.Groupe]) {
+                    grouped[contact.Groupe] = {};
+                }
+                if (!grouped[contact.Groupe][contact.Marque]) {
+                    grouped[contact.Groupe][contact.Marque] = [];
+                }
+                grouped[contact.Groupe][contact.Marque].push(contact);
+            });
+
+            let html = '';
+            for (const [group, brands] of Object.entries(grouped)) {
+                const totalInGroup = Object.values(brands).reduce((sum, contacts) => sum + contacts.length, 0);
+                html += `
+                    <div class="tree-group">
+                        <div class="group-toggle" onclick="toggleGroup(this)">
+                            <span class="arrow">▶</span>
+                            <span>${group}</span>
+                            <span class="group-count">${totalInGroup}</span>
+                        </div>
+                        <div class="group-content">
+                `;
+
+                for (const [brand, contacts] of Object.entries(brands)) {
+                    html += `
+                        <div class="brand-container">
+                            <div class="brand-toggle" onclick="toggleBrand(this)">
+                                <span class="arrow">▶</span>
+                                <span>${brand}</span>
+                                <span class="brand-count">${contacts.length}</span>
+                            </div>
+                            <div class="contacts-list">
+                    `;
+
+                    contacts.forEach(contact => {
+                        const priorityClass = `priority-${contact.Priorité.toLowerCase()}`;
+                        html += `
+                            <div class="contact-item">
+                                <div class="contact-name">${contact.Prénom} ${contact.Nom}</div>
+                                <div class="contact-info">
+                                    <div class="contact-role">${contact["Poste Exact"]}</div>
+                                    <span class="priority-badge ${priorityClass}">${contact.Priorité}</span>
+                                </div>
+                                <div>
+                                    <a href="${contact['LinkedIn URL Profil']}" target="_blank" class="linkedin-link">
+                                        🔗 LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        function toggleGroup(element) {
+            const content = element.nextElementSibling;
+            element.classList.toggle('collapsed');
+            content.classList.toggle('collapsed');
+        }
+
+        function toggleBrand(element) {
+            const content = element.nextElementSibling;
+            element.classList.toggle('collapsed');
+            content.classList.toggle('collapsed');
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.group-toggle, .brand-toggle').forEach(el => {
+                el.classList.remove('collapsed');
+                if (el.nextElementSibling) {
+                    el.nextElementSibling.classList.remove('collapsed');
+                }
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.group-toggle, .brand-toggle').forEach(el => {
+                el.classList.add('collapsed');
+                if (el.nextElementSibling) {
+                    el.nextElementSibling.classList.add('collapsed');
+                }
+            });
+        }
+
+        // Event listeners
+        document.getElementById('search-input').addEventListener('input', filter);
+        document.getElementById('filter-p1').addEventListener('change', filter);
+        document.getElementById('filter-p2').addEventListener('change', filter);
+        document.getElementById('filter-p3').addEventListener('change', filter);
+
+        // Initialisation
+        loadData();
+    </script>
+</body>
+</html>

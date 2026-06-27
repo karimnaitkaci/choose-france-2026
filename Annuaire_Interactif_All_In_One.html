@@ -281,11 +281,38 @@
             font-size: 12px;
             line-height: 1.6;
             transition: all 0.2s;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
         .contact-item:hover {
             background: #fafafa;
             border-left-color: #d4af37;
+        }
+
+        .contact-avatar {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            transition: transform 0.2s;
+        }
+
+        .contact-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-content {
+            flex: 1;
         }
 
         .contact-name {
@@ -439,6 +466,24 @@
         let allContacts = [];
         let filteredContacts = [];
 
+        // Palette de couleurs pour les avatars (luxe)
+        const avatarColors = [
+            '#b8860b', '#d4af37', '#8b6f47', '#c9a961', '#a67c52',
+            '#d4a574', '#8b7355', '#b8956a', '#a0826d', '#9a7c6a',
+            '#d4a17b', '#a68882', '#c8b5a0', '#9d8b7e', '#b8a68f'
+        ];
+
+        // Générer une couleur unique basée sur le nom
+        function getAvatarColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = ((hash << 5) - hash) + name.charCodeAt(i);
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            const index = Math.abs(hash) % avatarColors.length;
+            return avatarColors[index];
+        }
+
         // Initialisation - charge les données réelles
         function loadData() {
             allContacts = contactsData || [];
@@ -520,17 +565,27 @@
 
                     contacts.forEach(contact => {
                         const priorityClass = `priority-${contact.Priorité.toLowerCase()}`;
+                        const initials = (contact.Prénom[0] + contact.Nom[0]).toUpperCase();
+                        const avatarColor = getAvatarColor(contact.Prénom + contact.Nom);
+
                         html += `
                             <div class="contact-item">
-                                <div class="contact-name">${contact.Prénom} ${contact.Nom}</div>
-                                <div class="contact-info">
-                                    <div class="contact-role">${contact["Poste Exact"]}</div>
-                                    <span class="priority-badge ${priorityClass}">${contact.Priorité}</span>
-                                </div>
-                                <div>
-                                    <a href="${contact['LinkedIn URL Profil']}" target="_blank" class="linkedin-link">
-                                        🔗 LinkedIn
-                                    </a>
+                                <a href="${contact['LinkedIn URL Profil']}" target="_blank" style="text-decoration: none;">
+                                    <div class="contact-avatar" style="background: ${avatarColor};" title="${contact.Prénom} ${contact.Nom}">
+                                        ${initials}
+                                    </div>
+                                </a>
+                                <div class="contact-content">
+                                    <div class="contact-name">${contact.Prénom} ${contact.Nom}</div>
+                                    <div class="contact-info">
+                                        <div class="contact-role">${contact["Poste Exact"]}</div>
+                                        <span class="priority-badge ${priorityClass}">${contact.Priorité}</span>
+                                    </div>
+                                    <div>
+                                        <a href="${contact['LinkedIn URL Profil']}" target="_blank" class="linkedin-link">
+                                            🔗 LinkedIn
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         `;
